@@ -38,3 +38,13 @@ a:hover{
 .clear{
 	clear: both;
 }
+
+svg .control:hover{
+	cursor: pointer;
+} 
+svg .control:hover .background{
+	fill: #aaa;
+}
+svg .control:active .background{
+	fill: #888;
+}

@@ -37,6 +37,26 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 			currentcolor =  ('000000' + (Math.floor(Math.random()*0xFFFFFF)).toString(16)).slice(-6);
 			this.set("hex",currentcolor);
 		},
+		click: function (emotion) {
+			if (!emotion.trim()) { return; }
+			// Create the new Color model
+			var color = this.store.createRecord('color', {
+				hex: currentcolor,
+				emotion: emotion
+			});
+
+			// Clear the "New Color" text field
+			this.set('newEmotion', '');
+
+			// Save the new model
+			color.save().then(function() {
+				// SUCCESS
+			}, function() {
+				// FAILURE
+			});
+			Emotivecolor.alertController.pushObject(Ember.Object.create({ message:  colorname + " made you feel " + emotion + "." }));
+			this.send('generatedColor');
+		},
 		save: function () {
 			// Get the emotion title set by the "New Color" text field
 			var emotion = this.get('newEmotion');
