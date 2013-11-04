@@ -1,0 +1,14 @@
+<header>
+    <nav role="custom-dropdown">
+        <input type="checkbox" id="menu">
+        <label for="menu" onclick></label>
+        <h1>Emotive Color</h1>
+        <ul>
+            {{#each item in route}}
+                <li class="list-group-item">{{item}}</li>
+            {{/each}}
+        </ul>
+    </nav>
+</header>
+{{view Emotivecolor.AlertListView}}
+{{outlet}}
