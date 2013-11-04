@@ -1,49 +1,65 @@
 /* Fix Android */
 body {
-  -webkit-animation: bugfix infinite 1s; }
+  -webkit-animation: bugfix infinite 1s;
+}
 
 @-webkit-keyframes bugfix {
   from {
-    padding: 0; }
+    padding: 0;
+  }
 
   to {
-    padding: 0; } }
+    padding: 0;
+  }
+}
 
 /* Hide checkbox */
 input[type=checkbox] {
   position: absolute;
   top: -9999px;
-  left: -9999px; }
+  left: -9999px;
+}
 
 /* Like a link would behave */
 label {
   cursor: pointer;
-  user-select: none; }
+  user-select: none;
+}
 
 nav h1, nav ul, nav li {
-  display: inline; }
+  display: inline;
+}
 nav ul {
-  padding-left: 0; }
+  padding-left: 0;
+  margin: 0;
+}
 
 @media screen and (max-width: 44em) {
   nav[role="custom-dropdown"] ul {
     display: none;
-    height: 100%; }
+    height: 100%;
+  }
   nav[role="custom-dropdown"] label {
     position: relative;
     display: block;
-    width: 100%; }
+    width: 100%;
+  }
   nav[role="custom-dropdown"] label:after {
     position: absolute;
     right: 0;
+    margin: 0.2em;
     padding: 0 0.2em;
-    border: 1px solid black;
+    border: 1px solid #fff;
     border-radius: 0.25em;
-    content: "\2261";
+    content: '\2261';
     font-size: 2em;
-    line-height: 1; }
+    line-height: 1;
+  }
   nav[role="custom-dropdown"] input:checked ~ ul {
-    display: block; }
-    nav[role="custom-dropdown"] input:checked ~ ul > li {
-      display: block;
-      width: 100%; } }
+    display: block;
+  }
+  nav[role="custom-dropdown"] input:checked ~ ul > li {
+    display: block;
+    width: 100%;
+  }
+}
