@@ -1,9 +1,17 @@
 <h1>Colors</h1>
-
-<ul>
- {{#each model}}
- <li>{{#linkTo 'color' this}}{{this.id}}{{/linkTo}}</li>
-  {{/each}}
-</ul>
+<table>
+	<thead>
+		<tr>
+			<th>Hex</th>
+			<th>Emotion</th>
+		</tr>
+	</thead>
+	{{#each model}}
+	<tr>
+		<td style="background-color: #{{unbound this.hex}}">{{#linkTo "color" this}}{{this.hex}}{{/linkTo}}</td>
+		<td>{{this.emotion}}</td>
+	</tr>
+	{{/each}}
+</table>
 
 {{outlet}}
