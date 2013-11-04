@@ -1,15 +1,4 @@
 /* Put your CSS here */
-.button{
-	background-color: #fff;
-	border: 1px solid black;
-	border-radius: 5px;
-}
-.button.success{
-	background-color: #afa;
-}
-.button.alert{
-	background-color: #faa;
-}
 #bg-color{
 	position: absolute;
 	top: 0;
@@ -55,4 +44,24 @@ svg .control:hover .background{
 }
 svg .control:active .background{
 	fill: #888;
+}
+
+h1{
+	margin-top: 1em;
+	line-height: 1.5;
+	margin-bottom: 1em;
+}
+
+li{ line-height: 2;}
+
+a{ line-height: 2;}
+
+th, td{
+	font-size: 1em;
+	line-height: 1;
+	padding: 1em;
+}
+
+.hide{
+	visibility: hidden;
 }

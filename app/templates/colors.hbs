@@ -8,7 +8,7 @@
 	</thead>
 	{{#each model}}
 	<tr>
-		<td style="background-color: #{{unbound this.hex}}">{{#linkTo "color" this}}{{this.hex}}{{/linkTo}}</td>
+		<td style='background-color: #{{unbound this.hex}}'>{{#linkTo 'color' this}}{{this.hex}}{{/linkTo}}</td>
 		<td>{{this.emotion}}</td>
 	</tr>
 	{{/each}}

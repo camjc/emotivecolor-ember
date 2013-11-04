@@ -7,7 +7,7 @@
       <strong>{{this.key}}:</strong>
     </td>
     <td>
-      {{view Emotivecolor.BoundTextFieldView contentBinding="this"}}
+      {{view Emotivecolor.BoundTextFieldView contentBinding='this'}}
     </td>
   </tr>
   {{/each}}
@@ -18,8 +18,8 @@
 {{outlet}}
 
  --}}
-<div id="bg-color" {{bindAttr style="fillStyle"}}></div>
-<h1>{{getName}}</h1>
-{{partial "controls"}}
+<div id='bg-color' {{bindAttr style='fillStyle'}}></div>
+<h1 class='hidden'>{{getName}}</h1>
+{{partial 'controls'}}
 
 {{outlet}}
