@@ -4,9 +4,9 @@
         <label for="menu" onclick></label>
         <h1>Emotive Color</h1>
         <ul>
-            {{#each item in route}}
-                <li class="list-group-item">{{item}}</li>
-            {{/each}}
+            <li>{{#linkTo "color.edit"}}Entry{{/linkTo}}</li>
+            <li>{{#linkTo "colors"}}Results{{/linkTo}}</li>
+            <li>{{#linkTo "about"}}About{{/linkTo}}</li>
         </ul>
     </nav>
 </header>

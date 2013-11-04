@@ -1,4 +1,4 @@
-<h1>Color</h1>
+{{!-- <h1>Color</h1>
 
 <table>
   {{#each model.attributes}}
@@ -14,5 +14,13 @@
 </table>
 
 <button {{action 'save'}}>Update</button>
+
+{{outlet}}
+
+ --}}
+<div id="bg-color" {{bindAttr style="fillStyle"}}></div>
+<h1>{{getName}}</h1>
+{{input type="text" id="new-color" placeholder="What emotion?" value="newEmotion" action="createColor"}}
+{{view Ember.Select contentBinding="emotions" valueBinding="newEmotion" prompt="Which emotion?" }}
 
 {{outlet}}
