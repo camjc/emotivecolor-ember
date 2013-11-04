@@ -1,4 +1,4 @@
-// Emotivecolor.ColorEditController = Ember.ObjectController.extend({
+// Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 //   save: function(){
 //     // we're cheating here that there's no commit()
 //     // but the UI element is already bound to the model
@@ -8,7 +8,7 @@
 
 var currentcolor = "FA00E0";
 var colorname = "unnamed";
-Emotivecolor.ColorEditController = Ember.ObjectController.extend({
+Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 	selectedEmotion: null,
 	emotions: [
 		"Happy",

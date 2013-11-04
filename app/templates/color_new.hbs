@@ -23,4 +23,6 @@
 {{input type="text" id="new-color" placeholder="What emotion?" value="newEmotion" action="createColor"}}
 {{view Ember.Select contentBinding="emotions" valueBinding="newEmotion" prompt="Which emotion?" }}
 
+{{partial "controls"}}
+
 {{outlet}}
