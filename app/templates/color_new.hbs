@@ -20,9 +20,6 @@
  --}}
 <div id="bg-color" {{bindAttr style="fillStyle"}}></div>
 <h1>{{getName}}</h1>
-{{input type="text" id="new-color" placeholder="What emotion?" value="newEmotion" action="createColor"}}
-{{view Ember.Select contentBinding="emotions" valueBinding="newEmotion" prompt="Which emotion?" }}
-
 {{partial "controls"}}
 
 {{outlet}}

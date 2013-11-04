@@ -1,3 +1,7 @@
 Emotivecolor.ColorView = Ember.View.extend({
-    templateName: 'color'
+    templateName: 'color',
+	willClearRender: function(){
+		//Reset the body color to dark gray after leaving this view
+		$('body').css('color', '#333');
+	}
 });

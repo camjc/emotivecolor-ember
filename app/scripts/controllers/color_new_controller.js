@@ -16,7 +16,7 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 		"Surprised",
 		"Confused",
 		"Sad",
-		"Frustrated",
+		"Anxious",
 		"Angry",
 		"Love",
 		"Neutral",
@@ -24,7 +24,21 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 	init: function() {
 		this.send('generatedColor');
 	},
+	controlColor: function (bgHex) {
+		var rgb = parseInt(bgHex, 16);   // convert rrggbb to decimal
+		var r = (rgb >> 16) & 0xff;  // extract red
+		var g = (rgb >>  8) & 0xff;  // extract green
+		var b = (rgb >>  0) & 0xff;  // extract blue
+
+		var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+
+		if (luma < 128) { // If it is too dark for black
+		    return '#fff';
+		}
+		return '#333';
+	},
 	fillStyle: function() {
+		$('body').css('color', this.controlColor(this.get('hex')));
 		return 'background-color:#' + this.get('hex');
 	}.property('hex'),
 	getName: function() {
@@ -37,30 +51,11 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 			currentcolor =  ('000000' + (Math.floor(Math.random()*0xFFFFFF)).toString(16)).slice(-6);
 			this.set("hex",currentcolor);
 		},
-		click: function (emotion) {
-			if (!emotion.trim()) { return; }
-			// Create the new Color model
-			var color = this.store.createRecord('color', {
-				hex: currentcolor,
-				emotion: emotion
-			});
-
-			// Clear the "New Color" text field
-			this.set('newEmotion', '');
-
-			// Save the new model
-			color.save().then(function() {
-				// SUCCESS
-			}, function() {
-				// FAILURE
-			});
-			Emotivecolor.alertController.pushObject(Ember.Object.create({ message:  colorname + " made you feel " + emotion + "." }));
-			this.send('generatedColor');
-		},
-		save: function () {
-			// Get the emotion title set by the "New Color" text field
-			var emotion = this.get('newEmotion');
-			if (!emotion.trim()) { return; }
+		save: function (emotion) {
+			// Check that emotion passed from the template matches something in the above array
+			if ($.inArray( emotion, this.emotions) === -1){
+				return;
+			}
 			// Create the new Color model
 			var color = this.store.createRecord('color', {
 				hex: currentcolor,

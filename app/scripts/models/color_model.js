@@ -45,7 +45,7 @@ Emotivecolor.Color.FIXTURES = [
  {
    id: 4,
    hex: 'be40c7',
-   emotion: 'Frustrated'
+   emotion: 'Anxious'
  }
   
 ];

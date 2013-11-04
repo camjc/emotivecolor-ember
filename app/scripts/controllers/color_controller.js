@@ -11,6 +11,7 @@ Emotivecolor.ColorController = Ember.ObjectController.extend({
 		return this.get("content.hex") + " - " + this.get("content.emotion");
 	}.property("content.hex", "content.emotion"),
 	fillStyle: function() {
+		$('body').css('color', this.controllerFor("color_new").controlColor(this.get('hex')));
 		return 'background-color:#' + this.get('hex');
 	}.property('hex'),
 	getName: function() {

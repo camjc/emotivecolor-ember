@@ -1,8 +1,7 @@
 Emotivecolor.ColorNewView = Ember.View.extend({
     templateName: 'color_new',
-	click: function(event) {
-		// will be called when when an instance's
-		// rendered element is clicked
-		console.log('bloop');
+	willClearRender: function(){
+		//Reset the body color to dark gray after leaving this view
+		$('body').css('color', '#333');
 	}
 });
