@@ -38,7 +38,7 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 		return '#333';
 	},
 	fillStyle: function() {
-		$('body').css('color', this.controlColor(this.get('hex')));
+		jQuery('body').css('color', this.controlColor(this.get('hex')));
 		return 'background-color:#' + this.get('hex');
 	}.property('hex'),
 	getName: function() {
@@ -53,7 +53,7 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 		},
 		save: function (emotion) {
 			// Check that emotion passed from the template matches something in the above array
-			if ($.inArray( emotion, this.emotions) === -1){
+			if (jQuery.inArray( emotion, this.emotions) === -1){
 				return;
 			}
 			// Create the new Color model
