@@ -55,6 +55,7 @@ header{
 	border-bottom: 2px solid #FFF;
 	background-color: #AAA;
 	color: #FFF;
+	text-transform: lowercase;
 }
 
 table{
