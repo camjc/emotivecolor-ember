@@ -1,4 +1,5 @@
 Emotivecolor.AlertListView = Ember.CollectionView.extend({
 	itemViewClass: "Emotivecolor.AlertView",
-	contentBinding: "Emotivecolor.alertController"
+	contentBinding: "Emotivecolor.alertController",
+    classNames: ['alerts-view']
 });
