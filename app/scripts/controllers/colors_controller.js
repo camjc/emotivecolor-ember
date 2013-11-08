@@ -1,0 +1,15 @@
+Emotivecolor.ColorsController = Ember.ObjectController.extend({
+    actions: {
+        delete: function( item ){
+            // this tells Ember-Data to delete the current user
+            this.get('model').removeObject(item);
+            this.get('model').save().then(function() {
+                Emotivecolor.alertController.popObject(); // Removes Previous Message
+                Emotivecolor.alertController.pushObject(Ember.Object.create({ message:  "Deleted a color." }));
+            }, function() {
+                Emotivecolor.alertController.popObject(); // Removes Previous Message
+                Emotivecolor.alertController.pushObject(Ember.Object.create({ message:  "Could not delete this color." }));
+            });
+        }
+    }
+});

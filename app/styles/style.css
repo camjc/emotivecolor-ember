@@ -50,10 +50,10 @@ th, td{
 
 
 header{
+	padding: 0 2em;
 	border-bottom: 2px solid #FFF;
 	background-color: #AAA;
 	color: #FFF;
-	padding: 0 2em;
 }
 
 table{
@@ -76,10 +76,10 @@ table{
 
 .alert-box{
 	padding: 1em 2em;
-	line-height: 1em;
+	border-bottom: 2px solid whitesmoke;
 	background-color: #d8d8d8;
 	color: #fff;
-	border-bottom: 2px solid whitesmoke;
+	line-height: 1em;
 	cursor: pointer;
 }
 
@@ -87,6 +87,11 @@ table{
 	float: right;
 }
 
+button {
+	padding: 0.25em 1em;
+	border: 0px solid #FFF;
+	background-color: #DDD;
+}
 svg{
 	display: block;
 	box-sizing: border-box;

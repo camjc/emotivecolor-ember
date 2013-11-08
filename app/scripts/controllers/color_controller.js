@@ -17,7 +17,17 @@ Emotivecolor.ColorController = Ember.ObjectController.extend({
 		return colorname;
 	}.property('content.hex'),
 	actions: {
-		createColor: function () {
+		delete: function(){
+			// this tells Ember-Data to delete the current user
+			this.get('model').deleteRecord();
+			this.get('model').save().then(function() {
+				Emotivecolor.alertController.popObject(); // Removes Previous Message
+				Emotivecolor.alertController.pushObject(Ember.Object.create({ message:  "Deleted a color." }));
+			}, function() {
+				Emotivecolor.alertController.popObject(); // Removes Previous Message
+				Emotivecolor.alertController.pushObject(Ember.Object.create({ message:  "Could not delete this color." }));
+			});
+			this.transitionToRoute('colors');
 		}
 	}
 });
