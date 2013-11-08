@@ -35,16 +35,16 @@ nav ul {
 }
 
 @media screen and (max-width: 44em) {
-  nav[role="custom-dropdown"] ul {
+  nav[role="navigation"] ul {
     display: none;
     height: 100%;
   }
-  nav[role="custom-dropdown"] label {
+  nav[role="navigation"] label {
     position: relative;
     display: block;
     width: 100%;
   }
-  nav[role="custom-dropdown"] label:after {
+  nav[role="navigation"] label:after {
     position: absolute;
     right: 0;
     margin: 0.2em;
@@ -55,10 +55,10 @@ nav ul {
     font-size: 2em;
     line-height: 1;
   }
-  nav[role="custom-dropdown"] input:checked ~ ul {
+  nav[role="navigation"] input:checked ~ ul {
     display: block;
   }
-  nav[role="custom-dropdown"] input:checked ~ ul > li {
+  nav[role="navigation"] input:checked ~ ul > li {
     display: block;
     width: 100%;
   }

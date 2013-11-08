@@ -27,9 +27,12 @@
     "grunt-ember-templates": "0.4.14",
     "time-grunt": "~0.1.1",
     "grunt-neuter": "~0.5.0"
-
   },
   "engines": {
     "node": ">=0.8.0"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/camjc/emotivecolor-ember.git"
   }
 }
