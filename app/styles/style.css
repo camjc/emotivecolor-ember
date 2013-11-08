@@ -74,6 +74,19 @@ table{
 	padding: 0 2em;
 }
 
+.alert-box{
+	padding: 1em 2em;
+	line-height: 1em;
+	background-color: #d8d8d8;
+	color: #fff;
+	border-bottom: 2px solid whitesmoke;
+	cursor: pointer;
+}
+
+.ico-close{
+	float: right;
+}
+
 svg{
 	display: block;
 	box-sizing: border-box;

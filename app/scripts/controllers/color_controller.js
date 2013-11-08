@@ -2,6 +2,8 @@ var colorname = [];
 
 Emotivecolor.ColorController = Ember.ObjectController.extend({
 	needs: ['color_new'],
+	sortProperties: ['content.hex'],
+	sortAscending: true, // false = descending
 	description: function() {
 		return this.get("content.hex") + " - " + this.get("content.emotion");
 	}.property("content.hex", "content.emotion"),
@@ -14,36 +16,8 @@ Emotivecolor.ColorController = Ember.ObjectController.extend({
 		colorname = n_match[1];
 		return colorname;
 	}.property('content.hex'),
-	isCompleted: function(key, value){
-		var model = this.get('model');
-
-		if (value === undefined) {
-			// property being used as a getter
-			return model.get('emotion');
-		} else {
-			// property being used as a setter
-			model.set('emotion', value);
-			model.save();
-			return value;
-		}
-	}.property('model.emotion'),
 	actions: {
 		createColor: function () {
-			// Get the todo title set by the "New Color" text field
-			var emotion = this.get('newEmotion');
-			if (!emotion.trim()) { return; }
-
-			// Create the new Color model
-			var color = this.store.createRecord('color', {
-				hex: "#123",
-				emotion: emotion
-			});
-
-			// Clear the "New Color" text field
-			this.set('newEmotion', '');
-
-			// Save the new model
-			color.save();
 		}
 	}
 });
