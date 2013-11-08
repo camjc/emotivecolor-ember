@@ -1,7 +1,7 @@
 Emotivecolor.ColorsController = Ember.ObjectController.extend({
     actions: {
         delete: function( item ){
-            // this tells Ember-Data to delete the current user
+            // this tells Ember-Data to delete the color passed in as item
             this.get('model').removeObject(item);
             this.get('model').save().then(function() {
                 Emotivecolor.alertController.popObject(); // Removes Previous Message
