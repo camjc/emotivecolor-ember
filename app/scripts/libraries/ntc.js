@@ -1,6 +1,6 @@
 /*
 
-Edited by Cameron Chamberlain CamJC.com to pass JShint
+Edited by Cameron Chamberlain CamJC.com to pass JShint and add functionality
 
 +-----------------------------------------------------------------+
 |   Created by Chirag Mehta - http://chir.ag/tech/download/ntc    |
@@ -116,7 +116,7 @@ var ntc = {
     // adopted from: Farbtastic 1.2
     // http://acko.net/dev/farbtastic
     hsl: function (color) {
-        return [ (ntc.hslCamJC(color)[0] / 360) *255, (ntc.hslCamJC(color)[1] / 100) *255, (ntc.hslCamJC(color)[2] / 100) *255]
+        return [ (ntc.hslCamJC(color)[0] / 360) *255, (ntc.hslCamJC(color)[1] / 100) *255, (ntc.hslCamJC(color)[2] / 100) *255];
         // "use strict";
         // var rgb = [parseInt('0x' + color.substring(1, 3), 16) / 255, parseInt('0x' + color.substring(3, 5), 16) / 255, parseInt('0x' + color.substring(5, 7), 16) / 255];
         // var min, max, delta, h, s, l;

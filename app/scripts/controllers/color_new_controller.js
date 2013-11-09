@@ -51,7 +51,7 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 			currentcolor =  ('000000' + (Math.floor(Math.random()*0xFFFFFF)).toString(16)).slice(-6);
 			this.set('hex',currentcolor);
 		},
-		save: function (emotion) {
+		click: function (emotion) {
 			// Create the new Color model
 			var color = this.store.createRecord('color', {
 				hex: currentcolor,
