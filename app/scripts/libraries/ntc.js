@@ -85,34 +85,61 @@ var ntc = {
 
         return (cl < 0 ? ["#000000", "Invalid Color: " + color, "#000000", "", false] : ["#" + ntc.names[cl][0], ntc.names[cl][1], ntc.shadergb(ntc.names[cl][2]), ntc.names[cl][2], false]);
     },
+    // by CamJC adapted from TinyColor
+    hslCamJC: function (color) {
+        "use strict";
+        var r = ntc.rgb(color)[0],
+            g = ntc.rgb(color)[1],
+            b = ntc.rgb(color)[2],
+            max = Math.max(r, g, b),
+            min = Math.min(r, g, b),
+            h, s, l = (max + min) / 2;
+
+        if(max === min) {
+            h = s = 0; // achromatic
+        }
+        else {
+            var d = max - min;
+            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+            switch(max) {
+                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                case g: h = (b - r) / d + 2; break;
+                case b: h = (r - g) / d + 4; break;
+            }
+
+            h /= 6;
+        }
+
+        return [ Math.round(h*360) , Math.round(Math.abs(s)*100), Math.round((l /255)*100)];
+    },
 
     // adopted from: Farbtastic 1.2
     // http://acko.net/dev/farbtastic
     hsl: function (color) {
-        "use strict";
-        var rgb = [parseInt('0x' + color.substring(1, 3), 16) / 255, parseInt('0x' + color.substring(3, 5), 16) / 255, parseInt('0x' + color.substring(5, 7), 16) / 255];
-        var min, max, delta, h, s, l;
-        var r = rgb[0], g = rgb[1], b = rgb[2];
+        return [ (ntc.hslCamJC(color)[0] / 360) *255, (ntc.hslCamJC(color)[1] / 100) *255, (ntc.hslCamJC(color)[2] / 100) *255]
+        // "use strict";
+        // var rgb = [parseInt('0x' + color.substring(1, 3), 16) / 255, parseInt('0x' + color.substring(3, 5), 16) / 255, parseInt('0x' + color.substring(5, 7), 16) / 255];
+        // var min, max, delta, h, s, l;
+        // var r = rgb[0], g = rgb[1], b = rgb[2];
 
-        min = Math.min(r, Math.min(g, b));
-        max = Math.max(r, Math.max(g, b));
-        delta = max - min;
-        l = (min + max) / 2;
+        // min = Math.min(r, Math.min(g, b));
+        // max = Math.max(r, Math.max(g, b));
+        // delta = max - min;
+        // l = (min + max) / 2;
 
-        s = 0;
-        if(l > 0 && l < 1){
-            s = delta / (l < 0.5 ? (2 * l) : (2 - 2 * l));
-        }
+        // s = 0;
+        // if(l > 0 && l < 1) {
+        //     s = delta / (l < 0.5 ? (2 * l) : (2 - 2 * l));
+        // }
 
-        h = 0;
-        if(delta > 0)
-        {
-            if (max === r && max !== g) {h += (g - b) / delta;}
-            if (max === g && max !== b) {h += (2 + (b - r) / delta);}
-            if (max === b && max !== r) {h += (4 + (r - g) / delta);}
-            h /= 6;
-        }
-        return [parseInt(h * 255, 10), parseInt(s * 255, 10), parseInt(l * 255, 10)];
+        // h = 0;
+        // if(delta > 0) {
+        //     if (max === r && max !== g) {h += (g - b) / delta;}
+        //     if (max === g && max !== b) {h += (2 + (b - r) / delta);}
+        //     if (max === b && max !== r) {h += (4 + (r - g) / delta);}
+        //     h /= 6;
+        // // }
+        // return [parseInt(h * 255, 10), parseInt(s * 255, 10), parseInt(l * 255, 10)];
     },
 
     // adopted from: Farbtastic 1.2

@@ -59,9 +59,9 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 				r: ntc.rgb('#' + currentcolor)[0],
 				g: ntc.rgb('#' + currentcolor)[1],
 				b: ntc.rgb('#' + currentcolor)[2],
-				h: Math.round((ntc.hsl('#' + currentcolor)[0]/255) * 360),
-				s: Math.round((ntc.hsl('#' + currentcolor)[1]/255) * 100),
-				l: Math.round((ntc.hsl('#' + currentcolor)[2]/255) * 100)
+				h: ntc.hslCamJC('#' + currentcolor)[0],
+				s: ntc.hslCamJC('#' + currentcolor)[1],
+				l: ntc.hslCamJC('#' + currentcolor)[2]
 			}),
 			messageColorName = colorname; // Otherwise it may have changed by the time the message appears. 
 
