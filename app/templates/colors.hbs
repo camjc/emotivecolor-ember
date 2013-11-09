@@ -9,7 +9,7 @@
 	{{#each model}}
 	<tr>
 		<td style='background-color: #{{unbound this.hex}}'>{{#linkTo 'color' this}}{{this.hex}}{{/linkTo}}</td>
-		<td>{{#linkTo 'color' this}}{{this.emotion}}{{/linkTo}}</td>
+		<td>{{this.emotion}}</td>
 		<td><button {{action 'delete' this}}>✖ Delete</button></td>
 	</tr>
 	{{/each}}

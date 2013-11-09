@@ -7,6 +7,6 @@
 
 Emotivecolor.ColorsRoute = Ember.Route.extend({
     model: function() {
-        return this.get('store').find('color', { emotion: "Love" });
+        return this.get('store').find('color', { emotion: "Surprised" });
     }
 });

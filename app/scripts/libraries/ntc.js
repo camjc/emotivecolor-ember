@@ -112,7 +112,7 @@ var ntc = {
             if (max === b && max !== r) {h += (4 + (r - g) / delta);}
             h /= 6;
         }
-        return [parseInt(h * 255, 16), parseInt(s * 255, 16), parseInt(l * 255, 16)];
+        return [parseInt(h * 255, 10), parseInt(s * 255, 10), parseInt(l * 255, 10)];
     },
 
     // adopted from: Farbtastic 1.2

@@ -49,6 +49,10 @@ th, td{
 	line-height: 1;
 }
 
+td a{
+	display: block;
+}
+
 
 header{
 	padding: 0 2em;
@@ -108,12 +112,17 @@ svg{
 
 svg .control:hover{
 	cursor: pointer;
-} 
-svg .control:hover .background{
+}
+
+svg .control .background{
 	fill: #aaa;
 }
-svg .control:active .background{
+
+svg .control:hover .background{
 	fill: #888;
+}
+svg .control:active .background{
+	fill: #555;
 }
 
 /*

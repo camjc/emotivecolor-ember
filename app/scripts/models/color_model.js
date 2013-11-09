@@ -1,7 +1,15 @@
 Emotivecolor.Color = DS.Model.extend({
     hex: DS.attr('string'),
 
-    emotion: DS.attr('string')
+    emotion: DS.attr('string'),
+
+    r: DS.attr('number'),
+    g: DS.attr('number'),
+    b: DS.attr('number'),
+
+    h: DS.attr('number'),
+    s: DS.attr('number'),
+    l: DS.attr('number'),
 });
 
 // // probably should be mixed-in...
