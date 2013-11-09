@@ -24,16 +24,21 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 	init: function() {
 		this.send('generatedColor');
 	},
+	geoLocation: function () {
+		var arr = {};
+		function success(position) {
+			arr.push(position.coords.latitude);
+			arr.push(position.coords.longitude);
+		}
+		navigator.geolocation.getCurrentPosition(success);
+		return arr;
+	},
 	controlColor: function (bgHex) {
-		var rgb = parseInt(bgHex, 16),   // convert rrggbb to decimal
-			r = (rgb >> 16) & 0xff,  // extract red
-			g = (rgb >>  8) & 0xff,  // extract green
-			b = (rgb >>  0) & 0xff;  // extract blue
-
-		var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+		var rgb = ntc.rgb('#' + bgHex),
+			luma = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]; // per ITU-R BT.709
 
 		if (luma < 128) { // If it is too dark for black
-		    return '#fff';
+			return '#fff';
 		}
 		return '#333';
 	},
@@ -61,7 +66,10 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 				b: ntc.rgb('#' + currentcolor)[2],
 				h: ntc.hslCamJC('#' + currentcolor)[0],
 				s: ntc.hslCamJC('#' + currentcolor)[1],
-				l: ntc.hslCamJC('#' + currentcolor)[2]
+				l: ntc.hslCamJC('#' + currentcolor)[2],
+				date: new Date(),
+				lat: this.geoLocation()[0],
+				lng: this.geoLocation()[1],
 			}),
 			messageColorName = colorname; // Otherwise it may have changed by the time the message appears. 
 
@@ -69,9 +77,6 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 			if (jQuery.inArray( emotion, this.emotions) === -1){
 				return;
 			}
-
-			// Clear the 'New Color' text field
-			this.set('newEmotion', '');
 
 			// Save the new model
 			color.save().then(function() {
