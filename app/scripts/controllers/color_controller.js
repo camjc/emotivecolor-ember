@@ -13,8 +13,8 @@ Emotivecolor.ColorController = Ember.ObjectController.extend({
 	}.property('hex'),
 	getName: function() {
 		var n_match  = ntc.name("#" + this.get('content.hex'));
-		colorname = n_match[1];
-		return colorname;
+		colorNew.set('colorName', n_match[1]);
+		return colorNew.get('colorName');
 	}.property('content.hex'),
 	actions: {
 		// delete: function(){

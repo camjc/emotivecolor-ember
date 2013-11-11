@@ -11,6 +11,7 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 	colorName: 'unnamed',
 	currentLat: 0,
 	currentLng: 0,
+	userAgent: null,
 	selectedEmotion: null,
 	emotions: [
 		'Happy',
@@ -25,10 +26,13 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 	],
 	init: function() {
 		this.send('generatedColor');
-		this.geoLocation();
+		this.userData();
 	},
-	geoLocation: function () {
+	userData: function () {
 	    var _self = this;
+
+		_self.set('userAgent', navigator.userAgent); //Set UserAgent
+
 		function displayPosition(position) {
 			_self.setProperties({ 'currentLat': position.coords.latitude, 'currentLng': position.coords.longitude });
 		}
@@ -92,6 +96,7 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 				date: new Date(),
 				lat: this.get('currentLat'),
 				lng: this.get('currentLng'),
+				ua: this.get('userAgent'),
 			}),
 			messageColorName = this.get('colorName'); // Otherwise it may have changed by the time the message appears. 
 
