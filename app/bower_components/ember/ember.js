@@ -31570,7 +31570,7 @@ Ember.Route = Ember.Object.extend(Ember.ActionHandler, {
 
     Note that for routes with dynamic segments, this hook is only
     executed when entered via the URL. If the route is entered
-    through a transition (e.g. when using the `linkTo` Handlebars
+    through a transition (e.g. when using the `link-to` Handlebars
     helper), then a model context is already provided and this hook
     is not called. Routes without dynamic segments will always
     execute the model hook.
@@ -32889,14 +32889,14 @@ Ember.onLoad('Ember.Handlebars', function(Handlebars) {
   /**
     See [link-to](/api/classes/Ember.Handlebars.helpers.html#method_link-to)
 
-    @method linkTo
+    @method link-to
     @for Ember.Handlebars.helpers
     @deprecated
     @param {String} routeName
     @param {Object} [context]*
     @return {String} HTML string
   */
-  Ember.Handlebars.registerHelper('linkTo', Ember.Handlebars.helpers['link-to']);
+  Ember.Handlebars.registerHelper('link-to', Ember.Handlebars.helpers['link-to']);
 });
 
 
