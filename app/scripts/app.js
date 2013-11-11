@@ -1,4 +1,6 @@
-var Emotivecolor = window.Emotivecolor = Ember.Application.create();
+var Emotivecolor = window.Emotivecolor = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
 
 /* Order and include as you please. */
 require('scripts/controllers/*');

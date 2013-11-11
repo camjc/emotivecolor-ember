@@ -1,0 +1,24 @@
+<h1>A Single Emotion</h1>
+{{#linkTo 'emotions'}}Back to Emotions List{{/linkTo}}
+<table>
+  <thead>
+    <tr>
+      <th>Hex</th>
+      <th>RGB</th>
+      <th>HSL</th>
+      <th>Emotion</th>
+{{!--       <th><button {{action 'delete' this}}>✖ Delete All</button></th> --}}
+    </tr>
+  </thead>
+  {{#each model}}
+  <tr>
+    <td style='background-color: #{{unbound hex}}'>{{#linkTo 'color' this}}{{unbound hex}}{{/linkTo}}</td>
+    <td style='background-color: #{{unbound hex}}'>{{#linkTo 'color' this}}rgb ({{unbound r}}, {{unbound g}}, {{unbound b}}){{/linkTo}}</td>
+    <td style='background-color: #{{unbound hex}}'>{{#linkTo 'color' this}}hsl ({{unbound h}}°, {{unbound s}}%, {{unbound l}}%){{/linkTo}}</td>
+    <td>{{#linkTo 'emotion' this.emotion}}{{unbound emotion}}{{/linkTo}}</td>
+    <td><button {{action 'delete' this}}>✖ Delete</button></td>
+  </tr>
+  {{/each}}
+</table>
+
+{{outlet}}

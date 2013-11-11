@@ -83,7 +83,8 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 				Emotivecolor.alertController.popObject(); // Removes Previous Message
 				Emotivecolor.alertController.pushObject(Ember.Object.create({ message:  messageColorName + ' made you feel ' + emotion + '.' }));
 			}, function() {
-				console.log('It Failed, boo!');
+				Emotivecolor.alertController.popObject(); // Removes Previous Message
+				Emotivecolor.alertController.pushObject(Ember.Object.create({ message:  'Failed to save to database' }));
 			});
 			this.send('generatedColor');
 		}
