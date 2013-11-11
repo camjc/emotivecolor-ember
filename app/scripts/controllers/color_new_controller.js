@@ -7,7 +7,8 @@
 // });
 
 var currentcolor = 'FA00E0',
-	colorname = 'unnamed';
+	colorname = 'unnamed',
+	currentlocation = {};
 Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 	selectedEmotion: null,
 	emotions: [
@@ -23,15 +24,35 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 	],
 	init: function() {
 		this.send('generatedColor');
+		this.geoLocation();
 	},
 	geoLocation: function () {
-		var arr = {};
-		function success(position) {
-			arr.push(position.coords.latitude);
-			arr.push(position.coords.longitude);
+		if (navigator.geolocation) {
+			var timeoutVal = 10 * 1000 * 1000;
+			navigator.geolocation.getCurrentPosition(
+				displayPosition, 
+				displayError,
+				{ enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
+				);
 		}
-		navigator.geolocation.getCurrentPosition(success);
-		return arr;
+		else {
+			alert('Geolocation is not supported by this browser');
+		}
+
+		function displayPosition(position) {
+			currentlocation.lat = position.coords.latitude;
+			currentlocation.lng = position.coords.longitude;
+		}
+		function displayError(error) {
+			var errors = { 
+				1: 'Permission denied',
+				2: 'Position unavailable',
+				3: 'Request timeout'
+			};
+			alert('Error: ' + errors[error.code]);
+		}
+
+		return currentlocation;
 	},
 	controlColor: function (bgHex) {
 		var rgb = ntc.rgb('#' + bgHex),
@@ -68,8 +89,8 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 				s: ntc.hslCamJC('#' + currentcolor)[1],
 				l: ntc.hslCamJC('#' + currentcolor)[2],
 				date: new Date(),
-				lat: this.geoLocation()[0],
-				lng: this.geoLocation()[1],
+				lat: currentlocation.lat,
+				lng: currentlocation.lng,
 			}),
 			messageColorName = colorname; // Otherwise it may have changed by the time the message appears. 
 
@@ -77,6 +98,7 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
 			if (jQuery.inArray( emotion, this.emotions) === -1){
 				return;
 			}
+			console.log(currentlocation);
 
 			// Save the new model
 			color.save().then(function() {
