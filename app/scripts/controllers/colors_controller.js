@@ -2,7 +2,7 @@ Emotivecolor.ColorsController = Ember.ObjectController.extend({
     actions: {
         delete: function( item ){
             // this tells Ember-Data to delete the color passed in as item
-            this.get('model').removeObject(item);
+            this.get('model').removeObject(item); //This just removes it from display.
             this.get('model').save().then(function() {
                 Emotivecolor.alertController.popObject(); // Removes Previous Message
                 Emotivecolor.alertController.pushObject(Ember.Object.create({ message:  "Deleted a color." }));

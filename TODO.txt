@@ -1,4 +1,4 @@
-Delete isn't working.
+Delete on overview isn't working.
 save previous colour
 
 Visualisation

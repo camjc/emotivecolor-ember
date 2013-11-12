@@ -1,24 +1,24 @@
 <h1>All loaded colors</h1>
 
 <table>
-	<thead>
-		<tr>
-			<th>Hex</th>
-			<th>RGB</th>
-			<th>HSL</th>
-			<th>Emotion</th>
-{{!-- 			<th><button {{action 'delete' this}}>✖ Delete All</button></th> --}}
-		</tr>
-	</thead>
-	{{#each model}}
-	<tr>
-		<td style='background-color: #{{unbound hex}}'>{{#link-to 'color' this}}{{unbound hex}}{{/link-to}}</td>
-		<td style='background-color: #{{unbound hex}}'>{{#link-to 'color' this}}rgb ({{unbound r}}, {{unbound g}}, {{unbound b}}){{/link-to}}</td>
-		<td style='background-color: #{{unbound hex}}'>{{#link-to 'color' this}}hsl ({{unbound h}}°, {{unbound s}}%, {{unbound l}}%){{/link-to}}</td>
-		<td>{{#link-to 'emotion' this.emotion}}{{unbound emotion}}{{/link-to}}</td>
-		<td><button {{action 'delete' this}}>✖ Delete</button></td>
-	</tr>
-	{{/each}}
+    <thead>
+        <tr>
+            <th>Hex</th>
+            <th>RGB</th>
+            <th>HSL</th>
+            <th>Emotion</th>
+{{!--           <th><button {{action 'delete' this}}>✖ Delete All</button></th> --}}
+        </tr>
+    </thead>
+    {{#each model}}
+    <tr>
+        <td style='background-color: #{{unbound hex}}'>{{#link-to 'color' this}}{{unbound hex}}{{/link-to}}</td>
+        <td style='background-color: #{{unbound hex}}'>{{#link-to 'color' this}}rgb ({{unbound r}}, {{unbound g}}, {{unbound b}}){{/link-to}}</td>
+        <td style='background-color: #{{unbound hex}}'>{{#link-to 'color' this}}hsl ({{unbound h}}°, {{unbound s}}%, {{unbound l}}%){{/link-to}}</td>
+        <td>{{#link-to 'emotion' this.emotion}}{{unbound emotion}}{{/link-to}}</td>
+        <td><button {{action 'delete' this}}>✖ Delete</button></td>
+    </tr>
+    {{/each}}
 </table>
 
 {{outlet}}
