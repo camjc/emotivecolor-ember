@@ -1,6 +1,14 @@
 Emotivecolor.EmotionController = Ember.ObjectController.extend({
+    thisEmotion: 'applejacks',
+    init: function() {
+        this.getEmotion();
+    },
+    getEmotion: function() {
+        console.log(this.get('model', 'params'));
+        this.set('thisEmotion', this.get('route', 'params.emotion')); //This doesn't work yet
+    },
     actions: {
-        delete: function( item ){
+        delete: function( item ) {
             // this tells Ember-Data to delete the color passed in as item
             this.get('model').removeObject(item);
             this.get('model').save().then(function() {

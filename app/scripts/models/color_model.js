@@ -17,6 +17,8 @@ Emotivecolor.Color = DS.Model.extend({
     lng: DS.attr('number'),
 
     ua: DS.attr('string'),
+
+    lum: DS.attr('number'),
 });
 
 // // probably should be mixed-in...

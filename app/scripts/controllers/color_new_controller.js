@@ -7,11 +7,12 @@
 // });
 
 Emotivecolor.ColorNewController = Ember.ObjectController.extend({
-    currentColor: 'FA00E0',
-    colorName: 'unnamed',
-    currentLat: 0,
-    currentLng: 0,
+    currentColor: null,
+    colorName: null,
+    currentLat: null,
+    currentLng: null,
     userAgent: null,
+    currentLum: null,
     selectedEmotion: null,
     emotions: [
         'Happy',
@@ -27,11 +28,14 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
     init: function() {
         this.send('generatedColor');
         this.userData();
+        this.posData();
+        this.lumData();
     },
     userData: function () {
+        this.set('userAgent', navigator.userAgent); //Set UserAgent
+    },
+    posData: function () {
         var _self = this;
-
-        _self.set('userAgent', navigator.userAgent); //Set UserAgent
 
         function displayPosition(position) {
             _self.setProperties({ 'currentLat': position.coords.latitude, 'currentLng': position.coords.longitude });
@@ -56,6 +60,18 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
         else {
             console.log('Geolocation is not supported by this browser');
         }
+    },
+    lumData: function () {
+        var _self = this,
+            listener = function (event) {
+                // Read out the lux value
+                _self.set('currentLum', event.value);
+                //Just grab the luminosity once and then remove the event handler.
+                if (_self.get('curerntLum') !== null){
+                    this.removeEventListener('devicelight', arguments.callee, false);
+                }
+            };
+        window.addEventListener('devicelight', listener);
     },
     controlColor: function (bgHex) {
         var rgb = ntc.rgb('#' + bgHex),
@@ -97,6 +113,7 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
                 lat: this.get('currentLat'),
                 lng: this.get('currentLng'),
                 ua: this.get('userAgent'),
+                lum: this.get('currentLum'),
             }),
             messageColorName = this.get('colorName'); // Otherwise it may have changed by the time the message appears. 
 
