@@ -1,3 +1,3 @@
 Emotivecolor.EmotionView = Ember.View.extend({
-    templateName: 'emotion'
+    templateName: 'emotion',
 });

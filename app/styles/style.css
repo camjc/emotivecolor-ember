@@ -106,11 +106,15 @@ table{
 	color: #000;
 }
 
-.btn-warning{
+.btn-warning:hover{ /* Fix */
 	background-color: red;
 }
 
-svg{
+/* ==========================================================================
+   Input Controls Module
+   ========================================================================== */
+
+.controls{
 	display: block;
 	margin: 2em auto;
 	max-width: 100%;
@@ -118,18 +122,18 @@ svg{
 	width: 30em;
 }
 
-svg .control:hover{
+.controls-control:hover{
 	cursor: pointer;
 }
 
-svg .control .background{
+.controls-control .background{
 	fill: #aaa;
 }
 
-svg .control:hover .background{
+.controls-control:hover .background{
 	fill: #888;
 }
-svg .control:active .background{
+.controls-control:active .background{
 	fill: #555;
 }
 
@@ -143,6 +147,13 @@ svg .control:active .background{
 	width: 28%; /* Accommodate the 360% of hues. HACKY */
 }
 
+.graph-circle{
+	position: relative;
+	padding-bottom: 30%;
+	width: 30%;
+	margin: 0 auto 30%;
+}
+
 .graph-item{
 	width: 10%;
 	padding-bottom: 10%; /* Square aspect ratio */
@@ -151,6 +162,12 @@ svg .control:active .background{
 	position: absolute;
 	display: block;
 }
+
+/*.graph-circle-svg{
+	position: relative;
+	width: 100%;
+	margin: auto;
+}*/
 
 
 /*

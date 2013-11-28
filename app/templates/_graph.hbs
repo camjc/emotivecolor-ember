@@ -1,3 +1,11 @@
 {{#each model}}
-    {{#link-to 'color' this }}<div class='graph-item' style='left: {{unbound h}}%; top: {{unbound l}}%; z-index: {{unbound s}}; background-color: #{{unbound hex}};'></div>{{/link-to}}
+    <a href='#/color/{{unbound id}}' class='graph-item' style='left: {{unbound positionX}}%; top: {{unbound positionY}}%; width: {{unbound size}}%; padding-bottom: {{unbound size}}%; z-index: {{unbound l}}; background-color: #{{unbound hex}};'></a>
+{{/each}} --}}
+
+{{!-- Hacky Links Routing --}}
+
+
+{{!-- SVG VERSION --}}
+{{!-- {{#each model}}
+    <circle xlink:href='#/color/{{unbound id}}' cx='{{unbound positionX}}' cy='{{unbound positionY}}' r='{{unbound size}}' fill='#{{unbound hex}}' />
 {{/each}}

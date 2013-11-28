@@ -21,19 +21,28 @@ Emotivecolor.Color = DS.Model.extend({
     lum: DS.attr('number'),
 });
 
-// // probably should be mixed-in...
-// Emotivecolor.Color.reopen({
-//   // certainly I'm duplicating something that exists elsewhere...
-//   attributes: function(){
-//     var attrs = [];
-//     var model = this;
-//     Ember.$.each(Ember.A(Ember.keys(this.get('data'))), function(idx, key){
-//       var pair = { key: key, value: model.get(key) };
-//       attrs.push(pair);
-//     });
-//     return attrs;
-//   }.property()
-// });
+Emotivecolor.Color.reopen({
+    positionX: function(){
+        return -1 *((Math.sin(this.get('h')/180*Math.PI) * this.get('s') ) - 180).toFixed(2);
+    }.property('h', 's'),
+    positionY: function(){
+        return -1 *((Math.cos(this.get('h')/180*Math.PI) * this.get('s') ) - 90).toFixed(2);
+    }.property('h', 's'),
+    size: function(){
+        return (( this.get('l') + (this.get('s')/2) ) / 8).toFixed(2);
+    }.property('l'),
+    // attributes: function(){
+    // probably should be mixed-in...
+    // certainly I'm duplicating something that exists elsewhere...
+    //     var attrs = [];
+    //     var model = this;
+    //     Ember.$.each(Ember.A(Ember.keys(this.get('data'))), function(idx, key){
+    //         var pair = { key: key, value: model.get(key) };
+    //         attrs.push(pair);
+    //     });
+    //     return attrs;
+    // }.property('h')
+});
 
 // // delete below here if you do not want fixtures
 // Emotivecolor.Color.FIXTURES = [
