@@ -42,7 +42,7 @@ Emotivecolor.Color.reopen({
     linearY: function () {
         return 100 - this.get('l');
     }.property('l'),
-    // attributes: function(){
+    // attributes: function () {
     // probably should be mixed-in...
     // certainly I'm duplicating something that exists elsewhere...
     //     var attrs = [];

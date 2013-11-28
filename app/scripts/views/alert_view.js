@@ -6,11 +6,11 @@ Emotivecolor.AlertView = Ember.View.extend({
     kind: null,
     controllerBinding: "content",
 
-    click: function() {
+    click: function () {
         var that = this;
-        this.$().fadeOut(300, function(){ that.removeFromParent(); });
+        this.$().fadeOut(300, function () { that.removeFromParent(); });
     },
-    // didInsertElement: function() {
+    // didInsertElement: function () {
     //  this.$().hide().fadeIn(300);
     // }
 });
