@@ -1,7 +1,9 @@
-<h1>All loaded colors</h1>
-
-{{view Emotivecolor.GraphView}}
-{{view Emotivecolor.PlotView}}
+<h1>All loaded colors</h1><button {{action "swapVis"}}>Swap Visualisations</button>
+{{#if circleVis}}
+    {{view Emotivecolor.GraphView}}
+{{else}}
+    {{view Emotivecolor.PlotView}}
+{{/if}}
 
 {{!-- {{partial 'table'}} --}}
 

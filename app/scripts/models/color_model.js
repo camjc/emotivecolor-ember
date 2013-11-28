@@ -22,14 +22,20 @@ Emotivecolor.Color = DS.Model.extend({
 });
 
 Emotivecolor.Color.reopen({
-    positionX: function(){
-        return -1 *((Math.sin(this.get('h')/180*Math.PI) * this.get('s') ) - 180).toFixed(2);
+    radialX: function(){
+        return -1 *((Math.sin(this.get('h')/180*Math.PI) * this.get('s') ) - 50).toFixed(2);
     }.property('h', 's'),
-    positionY: function(){
+    radialY: function(){
         return -1 *((Math.cos(this.get('h')/180*Math.PI) * this.get('s') ) - 90).toFixed(2);
     }.property('h', 's'),
     size: function(){
         return (( this.get('l') + (this.get('s')/2) ) / 8).toFixed(2);
+    }.property('l'),
+    linearX: function(){
+        return this.get('h') / 3.6; /* 360/100 */
+    }.property('h'),
+    linearY: function(){
+        return 100 - this.get('l');
     }.property('l'),
     // attributes: function(){
     // probably should be mixed-in...

@@ -1,8 +1,8 @@
 /* Put your CSS here */
 
 html{
-	background-color: #F7F7F7;
 	overflow-y: scroll; /*Stops width of window changing*/
+	background-color: #F7F7F7;
 }
 
 .bg-color{
@@ -16,17 +16,17 @@ html{
 }
 
 body{
-	font-weight: 300;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
+	font-weight: 300;
 }
 
 h1, h2, h3, h4, h5{
 	font-weight: 500;
 }
 a {
+	line-height: 2;
 	color: inherit;
 	text-decoration: none;
-	line-height: 2;
 }
 a:hover{
 	text-decoration: underline;
@@ -45,9 +45,9 @@ li{
 
 th, td{
 	padding: 1em;
-	text-align: left;
 	font-size: 1em;
 	line-height: 1;
+	text-align: left;
 }
 
 td a{
@@ -56,10 +56,10 @@ td a{
 
 
 header{
-	border-bottom: 2px solid #FFF;
-	background-color: #AAA;
 	color: #FFF;
 	text-transform: lowercase;
+	background-color: #AAA;
+	border-bottom: 2px solid #FFF;
 }
 
 table{
@@ -77,18 +77,18 @@ table{
 }
 
 .container{
-	padding: 0 2em;
 	max-width: 1280px;
+	padding: 0 2em;
 	margin: auto;
 }
 
 .alert-box{
 	padding: 1em 2em;
-	border-bottom: 2px solid whitesmoke;
-	background-color: #888;
-	color: #fff;
 	line-height: 1em;
+	color: #fff;
 	cursor: pointer;
+	background-color: #888;
+	border-bottom: 2px solid whitesmoke;
 }
 
 .alerts-view {
@@ -101,9 +101,9 @@ table{
 
 .btn, button {
 	padding: 0.5em 1em;
-	border: 0 solid #FFF;
-	background-color: #DDD;
 	color: #000;
+	background-color: #DDD;
+	border: 0 solid #FFF;
 }
 
 .btn-warning:hover{ /* Fix */
@@ -116,10 +116,10 @@ table{
 
 .controls{
 	display: block;
-	margin: 2em auto;
+	width: 30em;
 	max-width: 100%;
 	max-height: 80%;
-	width: 30em;
+	margin: 2em auto;
 }
 
 .controls-control:hover{
@@ -143,24 +143,24 @@ table{
 
 .graph{
 	position: relative;
+	width: 100%; /* Accommodate the 360% of hues. HACKY */
 	padding-bottom: 56.25%; /* 16 by 9 aspect ratio */
-	width: 28%; /* Accommodate the 360% of hues. HACKY */
 }
 
 .graph-circle{
 	position: relative;
-	padding-bottom: 30%;
 	width: 30%;
+	padding-bottom: 30%;
 	margin: 0 auto 30%;
 }
 
 .graph-item{
-	width: 10%;
-	padding-bottom: 10%; /* Square aspect ratio */
-	margin: -5% 0 0 -5%;
-	border-radius: 50%;
 	position: absolute;
 	display: block;
+	width: 4%;
+	padding-bottom: 4%; /* Square aspect ratio */
+	margin: -2% 0 0 -2%;
+	border-radius: 50%;
 }
 
 /*.graph-circle-svg{
