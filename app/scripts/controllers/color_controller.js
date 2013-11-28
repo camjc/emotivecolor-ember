@@ -1,5 +1,3 @@
-// var colorname = [];
-
 Emotivecolor.ColorController = Ember.ObjectController.extend({
 	needs: ['color_new'],
 	fillStyle: function() {

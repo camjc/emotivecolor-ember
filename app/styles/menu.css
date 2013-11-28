@@ -32,6 +32,8 @@ nav h1, nav ul, nav li {
 nav ul {
   padding-left: 0;
   margin: 0;
+  float: right;
+  line-height: 4em;
 }
 
 nav .active{
@@ -47,6 +49,8 @@ nav .active:hover{
   nav[role="navigation"] ul {
     display: none;
     height: 100%;
+    float: none; //Overwrite
+    line-height: inherit; //Overwrite
   }
   nav[role="navigation"] label {
     position: relative;

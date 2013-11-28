@@ -1,5 +1,12 @@
+/*Ember.Application.initializer({
+    name: 'authentication',
+    initialize: function(container, application) {
+        Ember.SimpleAuth.setup(container, application);
+    }
+});*/
+
 var Emotivecolor = window.Emotivecolor = Ember.Application.create({
-  LOG_TRANSITIONS: true
+    LOG_TRANSITIONS: true
 });
 
 /* Order and include as you please. */

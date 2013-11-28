@@ -7,6 +7,9 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         console.log(this.get('model', 'params'));
         this.set('thisEmotion', this.get('route', 'params.emotion')); //This doesn't work yet
     },
+    getHuePercent: function() {
+        return this.get('model').get('h');
+    }.property('@each.h'),
     actions: {
         delete: function( item ) {
             // this tells Ember-Data to delete the color passed in as item
