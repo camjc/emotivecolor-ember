@@ -2,7 +2,7 @@
 
 html{
 	overflow-y: scroll; /*Stops width of window changing*/
-	background-color: #F7F7F7;
+	background-color: #D1D1D1; /* Old Value: #F7F7F7; */
 }
 
 .bg-color{

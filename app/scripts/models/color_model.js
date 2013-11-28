@@ -22,19 +22,24 @@ Emotivecolor.Color = DS.Model.extend({
 });
 
 Emotivecolor.Color.reopen({
-    radialX: function(){
-        return -1 *((Math.sin(this.get('h')/180*Math.PI) * this.get('s') ) - 50).toFixed(2);
-    }.property('h', 's'),
-    radialY: function(){
-        return -1 *((Math.cos(this.get('h')/180*Math.PI) * this.get('s') ) - 90).toFixed(2);
-    }.property('h', 's'),
-    size: function(){
-        return (( this.get('l') + (this.get('s')/2) ) / 8).toFixed(2);
+    degToRad: function (deg) {
+        return deg / 180 * Math.PI;
+    },
+    radialX: function () {
+        var basePos = Math.sin(this.degToRad(this.get('h'))) * (this.get('s') + (this.get('l') / 10));
+        return -1 * (basePos - 50).toFixed(2);
+    }.property('h', 's', 'l'),
+    radialY: function () {
+        var basePos = Math.cos(this.degToRad(this.get('h'))) * (this.get('s') + (this.get('l') / 10));
+        return -1 * (basePos - 90).toFixed(2);
+    }.property('h', 's', 'l'),
+    size: function () {
+        return ((this.get('l') + (this.get('s') / 2)) / 8).toFixed(2);
     }.property('l'),
-    linearX: function(){
+    linearX: function () {
         return this.get('h') / 3.6; /* 360/100 */
     }.property('h'),
-    linearY: function(){
+    linearY: function () {
         return 100 - this.get('l');
     }.property('l'),
     // attributes: function(){

@@ -6,7 +6,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
                 this.set('circleVis', false);
             } else {
                 this.set('circleVis', true);
-            };
+            }
         },
         delete: function( item ) {
             // this tells Ember-Data to delete the color passed in as item
