@@ -5,7 +5,7 @@
 // });
 
 
-Emotivecolor.ColorsRoute = Ember.Route.extend(/*Ember.SimpleAuth.AuthenticatedRouteMixin, */{
+Emotivecolor.ColorsRoute = Ember.Route.extend({
     model: function () {
         return this.get('store').find('color', {"sort": "h" });
     }

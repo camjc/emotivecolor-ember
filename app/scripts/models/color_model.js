@@ -27,11 +27,19 @@ Emotivecolor.Color.reopen({
     },
     radialX: function () {
         var basePos = Math.sin(this.degToRad(this.get('h'))) * (this.get('s') + (this.get('l') / 10));
-        return -1 * (basePos - 50).toFixed(2);
+        return (basePos + 50).toFixed(2);
     }.property('h', 's', 'l'),
     radialY: function () {
         var basePos = Math.cos(this.degToRad(this.get('h'))) * (this.get('s') + (this.get('l') / 10));
         return -1 * (basePos - 90).toFixed(2);
+    }.property('h', 's', 'l'),
+    radial3X: function () {
+        var basePos = Math.sin(this.degToRad(this.get('h'))) * this.get('s');
+        return basePos;
+    }.property('h', 's', 'l'),
+    radial3Y: function () {
+        var basePos = Math.cos(this.degToRad(this.get('h'))) * this.get('s');
+        return basePos;
     }.property('h', 's', 'l'),
     size: function () {
         return ((this.get('l') + (this.get('s') / 2)) / 8).toFixed(2);

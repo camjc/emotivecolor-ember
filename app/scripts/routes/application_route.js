@@ -1,1 +1,1 @@
-Emotivecolor.ApplicationRoute = Ember.Route.extend(/*Ember.SimpleAuth.ApplicationRouteMixin*/);
+Emotivecolor.ApplicationRoute = Ember.Route.extend();

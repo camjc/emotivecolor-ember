@@ -49,8 +49,8 @@ nav .active:hover{
   nav[role="navigation"] ul {
     display: none;
     height: 100%;
-    float: none; //Overwrite
-    line-height: inherit; //Overwrite
+    float: none; /* Overwrite */
+    line-height: inherit; /* Overwrite */
   }
   nav[role="navigation"] label {
     position: relative;
