@@ -4,7 +4,7 @@ Emotivecolor.ColorsController = Ember.ObjectController.extend({
         self.set('scene', new THREE.Scene());
 
         self.set('camera', new THREE.PerspectiveCamera(20, 1280 / 720, 1, 20000));
-        self.set('camera.position.y', 800);
+        self.set('camera.position.y', 600);
 
         // if (window.WebGLRenderingContext) {
             self.set('renderer', new THREE.WebGLRenderer({ antialias: true }));

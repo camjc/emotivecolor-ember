@@ -1,5 +1,7 @@
+<div class="css3d" style='-webkit-transform-style: preserve-3d'>
 {{#each model}}
-    <a href='#/color/{{unbound id}}' class='graph-item' style='-webkit-transform: translate3d({{unbound radial3X}}px, {{unbound radial3Y}}px, {{unbound l}}px); z-index: {{unbound l}}; background-color: #{{unbound hex}};' ></a>
+    <a href='#/color/{{unbound id}}' class='graph-item' style='-webkit-transform: translate3d({{unbound cssX}}px, {{unbound cssY}}px, {{unbound cssZ}}px); z-index: {{unbound l}}; background-color: #{{unbound hex}};' ></a>
 {{/each}}
+</div>
 
 {{!-- Hacky Links Routing --}}

@@ -1,12 +1,13 @@
 <h1>A Single Emotion</h1>
 
-<button {{action "swapVis"}}>Swap Visualisations</button>
+{{partial 'css3d'}}
+{{!-- <button {{action "swapVis"}}>Swap Visualisations</button>
 {{#if circleVis}}
     {{partial '3dVisualiser'}}
 {{else}}
     {{view Emotivecolor.GraphView}}
-    {{!-- {{view Emotivecolor.PlotView}} --}}
-{{/if}}
+    {{view Emotivecolor.PlotView}}
+{{/if}} --}}
 {{#link-to 'emotions' class='btn'}}Back to Emotions List{{/link-to}}
 {{!-- {{partial 'table'}} --}}
 

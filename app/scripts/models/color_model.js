@@ -54,6 +54,15 @@ Emotivecolor.Color.reopen({
     linearY: function () {
         return 100 - this.get('l');
     }.property('l'),
+    cssX: function () {
+        return this.get('radial3X') * 4 + 700;
+    }.property('h', 's'),
+    cssY: function () {
+        return this.get('radial3Y') * 4 + 300;
+    }.property('h', 's'),
+    cssZ: function () {
+        return this.get('radial3Z') * 4;
+    }.property('h', 's'),
     // attributes: function () {
     // probably should be mixed-in...
     // certainly I'm duplicating something that exists elsewhere...
