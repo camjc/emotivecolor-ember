@@ -5,7 +5,8 @@ Emotivecolor.Router.map(function () {
     this.resource('color.new', { path: '/color/new' });
     this.resource('emotions', { path: 'emotions' });
     this.resource('emotion', { path: '/emotion/:emotion' });
-    this.resource('about');
+    this.resource('vis');
+    this.resource('about', { path: '/' });
     // this.route('login');
     // //protected route that's inaccessible without authentication
     // this.route('protected');

@@ -2,12 +2,11 @@
     <nav role='navigation' class='container'>
         <input type='checkbox' id='menu'>
         <label for='menu' onclick></label>
-        <h1>Emotive Color</h1>
+        <h1>{{#link-to 'about'}}Emotive Color{{/link-to}}</h1>
         <ul>
             <li>{{#link-to 'color.new'}}Contribute{{/link-to}}</li>
             <li>{{#link-to 'colors'}}Colors{{/link-to}}</li>
             <li>{{#link-to 'emotions'}}Emotions{{/link-to}}</li>
-            <li>{{#link-to 'about'}}About{{/link-to}}</li>
 {{!--             {{#link-to 'protected' tagName='li'}}
                 <a style="cursor: pointer">Protected Page</a>
             {{/link-to}}

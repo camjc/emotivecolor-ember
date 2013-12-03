@@ -3,6 +3,8 @@
 html{
 	overflow-y: scroll; /*Stops width of window changing*/
 	background-color: #D1D1D1; /* Old Value: #F7F7F7; */
+	color: #444;
+	line-height: 1.5em;
 }
 
 .bg-color{
@@ -37,6 +39,10 @@ h1{
 	margin-top: 0;
 	margin-bottom: 1em;
 	line-height: 1.5;
+}
+
+p{
+	font-size: 1.125em;
 }
 
 li{ 

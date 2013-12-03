@@ -22,6 +22,9 @@ Emotivecolor.Color = DS.Model.extend({
 });
 
 Emotivecolor.Color.reopen({
+    hexo: function () {
+        return '0x' + this.get('hex');
+    }.property('hex'),
     degToRad: function (deg) {
         return deg / 180 * Math.PI;
     },
@@ -34,13 +37,14 @@ Emotivecolor.Color.reopen({
         return -1 * (basePos - 90).toFixed(2);
     }.property('h', 's', 'l'),
     radial3X: function () {
-        var basePos = Math.sin(this.degToRad(this.get('h'))) * this.get('s');
-        return basePos;
-    }.property('h', 's', 'l'),
+        return Math.sin(this.degToRad(this.get('h'))) * this.get('s');
+    }.property('h', 's'),
     radial3Y: function () {
-        var basePos = Math.cos(this.degToRad(this.get('h'))) * this.get('s');
-        return basePos;
-    }.property('h', 's', 'l'),
+        return Math.cos(this.degToRad(this.get('h'))) * this.get('s');
+    }.property('h', 's'),
+    radial3Z: function () {
+        return (this.get('l') * 3) - 150;
+    }.property('l'),
     size: function () {
         return ((this.get('l') + (this.get('s') / 2)) / 8).toFixed(2);
     }.property('l'),

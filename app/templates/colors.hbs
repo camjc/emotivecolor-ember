@@ -1,12 +1,14 @@
 <h1>All loaded colors</h1>
-<button {{action "swapVis"}}>Swap Visualisations</button>
+
+<div id='renderer'></div>
+{{!-- <button {{action "swapVis"}}>Swap Visualisations</button>
 {{#if circleVis}}
     {{partial '3dVisualiser'}}
 {{else}}
     {{view Emotivecolor.GraphView}}
-    {{!-- {{view Emotivecolor.PlotView}} --}}
-{{/if}}
+    {{view Emotivecolor.PlotView}}
+{{/if}} --}}
 
 {{!-- {{partial 'table'}} --}}
 
-{{outlet}}
+Number of Colors Displayed: {{mesher}}

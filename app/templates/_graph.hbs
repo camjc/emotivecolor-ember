@@ -1,14 +1,6 @@
-{{#each model}}
-    <a href='#/color/{{unbound id}}' class='graph-item' style='left: {{unbound radialX}}%; top: {{unbound radialY}}%; width: {{unbound size}}%; padding-bottom: {{unbound size}}%; z-index: {{unbound l}}; background-color: #{{unbound hex}};' ></a>
-{{/each}}
-
+<div class="graph">
+    {{#each model}}
+        <a href='#/color/{{unbound id}}' class='graph-item' style='left: {{unbound radialX}}%; top: {{unbound radialY}}%; width: {{unbound size}}%; padding-bottom: {{unbound size}}%; z-index: {{unbound l}}; background-color: #{{unbound hex}};' ></a>
+    {{/each}}
+</div>
 {{!-- Hacky Links Routing --}}
-
-
-{{!-- SVG VERSION --}}
-{{!-- {{#each model}}
-    <circle xlink:href='#/color/{{unbound id}}' cx='{{unbound radialX}}' cy='{{unbound radialY}}' r='{{unbound size}}' fill='#{{unbound hex}}' />
-{{/each}} --}}
-
-{{!-- <canvas data-processing-sources="circular-graph.pde"></canvas>
- --}}

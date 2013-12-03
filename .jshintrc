@@ -21,6 +21,8 @@
         "Ember": true,
         "Handlebars": true,
         "DS": true,
-        "ntc": true
+        "ntc": true,
+        "THREE": true,
+        "requestAnimationFrame": true
     }
 }
