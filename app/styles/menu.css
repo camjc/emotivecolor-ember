@@ -13,6 +13,10 @@ body {
   }
 }
 
+nav h1{
+  font-weight: 500;
+}
+
 /* Hide checkbox */
 input[type=checkbox] {
   position: absolute;

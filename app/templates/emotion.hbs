@@ -1,7 +1,9 @@
+<div {{!-- class='hide' --}}>
 <h1>A Single Emotion</h1>
-
-{{partial 'css3d'}}
-{{!-- <button {{action "swapVis"}}>Swap Visualisations</button>
+Displaying {{mesher}} colors
+{{!-- {{partial 'css3d'}}
+ --}}
+ {{!-- <button {{action "swapVis"}}>Swap Visualisations</button>
 {{#if circleVis}}
     {{partial '3dVisualiser'}}
 {{else}}
@@ -9,6 +11,8 @@
     {{view Emotivecolor.PlotView}}
 {{/if}} --}}
 {{#link-to 'emotions' class='btn'}}Back to Emotions List{{/link-to}}
+
 {{!-- {{partial 'table'}} --}}
 
 {{outlet}}
+</div>
