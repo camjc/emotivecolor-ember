@@ -40,7 +40,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         self.renderer.setClearColor(0xD1D1D1, 1);
         self.scene.fog = new THREE.FogExp2(0xD1D1D1, 0.0001);
 
-        self.sprite = THREE.ImageUtils.loadTexture("images/circleB.png");
+        self.sprite = THREE.ImageUtils.loadTexture("images/circleB.png"); //Isn't found on compile because of renaming
 
         self.set('controls', new THREE.OrbitControls(self.camera, self.renderer.domElement));
 
