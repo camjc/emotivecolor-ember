@@ -40,8 +40,12 @@ nav ul {
   line-height: 4em;
 }
 
-nav .active{
+nav {
   color: #eee;
+}
+
+nav .active{
+  color: #fff;
   cursor: default;
 }
 

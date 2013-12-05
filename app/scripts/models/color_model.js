@@ -28,14 +28,14 @@ Emotivecolor.Color.reopen({
     degToRad: function (deg) {
         return deg / 180 * Math.PI;
     },
-    radialX: function () {
-        var basePos = Math.sin(this.degToRad(this.get('h'))) * (this.get('s') + (this.get('l') / 10));
-        return (basePos + 50).toFixed(2);
-    }.property('h', 's', 'l'),
-    radialY: function () {
-        var basePos = Math.cos(this.degToRad(this.get('h'))) * (this.get('s') + (this.get('l') / 10));
-        return -1 * (basePos - 90).toFixed(2);
-    }.property('h', 's', 'l'),
+    // radialX: function () {
+    //     var basePos = Math.sin(this.degToRad(this.get('h'))) * (this.get('s') + (this.get('l') / 10));
+    //     return (basePos + 50).toFixed(2);
+    // }.property('h', 's', 'l'),
+    // radialY: function () {
+    //     var basePos = Math.cos(this.degToRad(this.get('h'))) * (this.get('s') + (this.get('l') / 10));
+    //     return -1 * (basePos - 90).toFixed(2);
+    // }.property('h', 's', 'l'),
     radial3X: function () {
         return Math.sin(this.degToRad(this.get('h'))) * this.get('s');
     }.property('h', 's'),
@@ -45,24 +45,24 @@ Emotivecolor.Color.reopen({
     radial3Z: function () {
         return (this.get('l') * 3) - 150;
     }.property('l'),
-    size: function () {
-        return ((this.get('l') + (this.get('s') / 2)) / 8).toFixed(2);
-    }.property('l'),
-    linearX: function () {
-        return this.get('h') / 3.6; /* 360/100 */
-    }.property('h'),
-    linearY: function () {
-        return 100 - this.get('l');
-    }.property('l'),
-    cssX: function () {
-        return this.get('radial3X') * 4 + 700;
-    }.property('h', 's'),
-    cssY: function () {
-        return this.get('radial3Y') * 4 + 300;
-    }.property('h', 's'),
-    cssZ: function () {
-        return this.get('radial3Z') * 4;
-    }.property('h', 's'),
+    // size: function () {
+    //     return ((this.get('l') + (this.get('s') / 2)) / 8).toFixed(2);
+    // }.property('l'),
+    // linearX: function () {
+    //     return this.get('h') / 3.6; /* 360/100 */
+    // }.property('h'),
+    // linearY: function () {
+    //     return 100 - this.get('l');
+    // }.property('l'),
+    // cssX: function () {
+    //     return this.get('radial3X') * 4 + 700;
+    // }.property('h', 's'),
+    // cssY: function () {
+    //     return this.get('radial3Y') * 4 + 300;
+    // }.property('h', 's'),
+    // cssZ: function () {
+    //     return this.get('radial3Z') * 4;
+    // }.property('h', 's'),
     // attributes: function () {
     // probably should be mixed-in...
     // certainly I'm duplicating something that exists elsewhere...

@@ -21,37 +21,63 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
     //     return avgH + ', ' + avgS + '%, ' + avgL + '%';
     // }.property('@each'),
     init: function () {
+        // First Time:
+        this.initScene();
+        this.initCamera();
+        this.initRenderer();
+        this.initControls();
+        // Every Time:
+        this.initContainer();
+        this.animate();
+    },
+    initScene: function () {
+        this.set('scene', new THREE.Scene());
+    },
+    initCamera: function () {
+        this.set('camera', new THREE.PerspectiveCamera(20, 1280 / 720, 1, 20000));
+        this.set('camera.position.y', 600);
+    },
+    initRenderer: function () {
         var self = this;
-        self.set('scene', new THREE.Scene());
-
-        self.set('camera', new THREE.PerspectiveCamera(20, 1280 / 720, 1, 20000));
-        self.set('camera.position.y', 600);
-
         if (window.WebGLRenderingContext) {
             self.set('renderer', new THREE.WebGLRenderer({
                 antialias: true
             }));
             self.set('rendererType', 'webgl');
+            self.sprite = THREE.ImageUtils.loadTexture("images/circleB.png"); //Isn't found on compile because of renaming
         } else {
             self.set('renderer', new THREE.CanvasRenderer());
             self.set('rendererType', 'canvas');
         }
+
         self.renderer.setSize(1280, 720);
         self.renderer.setClearColor(0xD1D1D1, 1);
         self.scene.fog = new THREE.FogExp2(0xD1D1D1, 0.0001);
-
-        self.sprite = THREE.ImageUtils.loadTexture("images/circleB.png"); //Isn't found on compile because of renaming
-
-        self.set('controls', new THREE.OrbitControls(self.camera, self.renderer.domElement));
-
-        // self.scene.add(new THREE.Mesh(new THREE.SphereGeometry(50, 100, 100), new THREE.MeshNormalMaterial()));
-
-        // document.body.appendChild(self.get('renderer').domElement);
-        // self.set('canvas', '<div id="canvas"></div>');
-        document.body.appendChild(self.get('renderer').domElement);
-        self.animate();
     },
-    program: function (context) {
+    initControls: function () {
+        var self = this;
+        self.set('controls', new THREE.OrbitControls(self.camera, self.renderer.domElement));
+    },
+    initContainer: function () {
+        var self = this;
+        document.body.appendChild(self.get('renderer').domElement);
+        self.set('renderCanvas', true);
+    },
+    render: function () {
+        var self = this;
+        self.renderer.render(self.scene, self.camera);
+        self.controls.update();
+    },
+    animate: function () {
+        var self = this;
+        if (self.renderCanvas !== null) { // Checks that the camera still exists before looping.
+            requestAnimationFrame(function () {
+                return self.animate();
+            });
+            self.render();
+        }
+    },
+    drawCircle: function (context) {
         var PI2 = Math.PI * 2;
         context.beginPath();
         context.arc(0, 0, 4, 0, PI2, true);
@@ -63,10 +89,12 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             geometry = new THREE.Geometry(),
             vertexColors = [],
             material;
-        if (self.get('camera') === null) { //Initalize scene if it hasn't already (returning to view)
-            self.init();
+        if (self.get('renderCanvas') === null) { //Initalize scene if it hasn't already (returning to view)
+            self.initContainer();
+            self.animate();
         }
         if (self.get('rendererType') === 'webgl') {
+
             self.get('model').forEach(function (indiv, index) {
 
                 var vertex = new THREE.Vector3();
@@ -96,7 +124,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
                 indivColor.setHex(indiv.get('hexo'));
                 var material = new THREE.SpriteCanvasMaterial({
                     color: indivColor,
-                    program: self.program
+                    program: self.drawCircle
                 });
                 indiv.particle = new THREE.Particle(material);
                 indiv.particle.position.x = indiv.get('radial3Y');
@@ -108,25 +136,12 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             });
         }
 
+        // self.scene.add(new THREE.Mesh(new THREE.SphereGeometry(50, 100, 100), new THREE.MeshNormalMaterial()));
         self.scene.add(self.particles);
 
         return self.get('model.length');
 
     }.property('@each'),
-    render: function () {
-        var self = this;
-        self.renderer.render(self.scene, self.camera);
-        self.controls.update();
-    },
-    animate: function () {
-        var self = this;
-        if (self.camera !== null) { // Checks that the camera still exists before looping.
-            requestAnimationFrame(function () {
-                return self.animate();
-            });
-            self.render();
-        }
-    },
     actions: {
         delete: function (item) {
             // this tells Ember-Data to delete the color passed in as item
@@ -143,5 +158,5 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
                 }));
             });
         }
-    } //Same as in the colors controller, can I DRY this?
+    }
 });
