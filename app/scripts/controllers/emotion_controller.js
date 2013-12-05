@@ -117,9 +117,12 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             self.particles = new THREE.ParticleSystem(geometry, material);
             self.particles.sortParticles = true;
 
+            self.scene.add(self.particles);
+
         } else if (self.get('rendererType') === 'canvas') {
 
             self.get('model').forEach(function (indiv, index) {
+                self.particleCount += 1;
                 var indivColor = new THREE.Color();
                 indivColor.setHex(indiv.get('hexo'));
                 var material = new THREE.SpriteCanvasMaterial({
@@ -137,7 +140,6 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         }
 
         // self.scene.add(new THREE.Mesh(new THREE.SphereGeometry(50, 100, 100), new THREE.MeshNormalMaterial()));
-        self.scene.add(self.particles);
 
         return self.get('model.length');
 
