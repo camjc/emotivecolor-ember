@@ -2,9 +2,9 @@
 
 html{
 	overflow-y: scroll; /*Stops width of window changing*/
-	background-color: #D1D1D1; /* Old Value: #F7F7F7; */
 	color: #444;
 	text-transform: lowercase;
+	background-color: #D1D1D1; /* Old Value: #F7F7F7; */
 }
 
 .bg-color{
@@ -77,6 +77,13 @@ table{
 	text-align: center;
 }
 
+.blockcenter{
+	display: block;
+	width: 10em;
+	margin: auto;
+	text-align: center;
+}
+
 .hide{
   position: absolute;
   top: -9999px;
@@ -98,19 +105,39 @@ table{
 	border-bottom: 2px solid whitesmoke;
 }
 
-/*.alerts-view {
+.alerts-view {
 	min-height: 3.5em;
 }
-*/
+
 .ico-close{
 	float: right;
 }
 
 .btn, button {
-	padding: 0.5em 1em;
-	color: #000;
-	background-color: #DDD;
-	border: 0 solid #FFF;
+	padding: 0.5em 2em;
+	line-height: 1.5em;
+	color: #FFF;
+	text-decoration: none;
+	cursor: pointer;
+	background-color: #AAA;
+	border: none;
+	border: 2px solid #FFF;
+	box-sizing: border-box;
+	appearance: none;
+	user-select: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+.btn:hover, button:hover {
+	text-decoration: none;
+	background-color: #888;
+}
+
+.btn:active, button:active{
+	background-color: #555;
 }
 
 .btn-warning:hover{ /* Fix */
@@ -170,20 +197,17 @@ table{
 	border-radius: 50%;
 }
 
-#threevis{
-	width: 100%;
-}
-
 canvas{
-	width: 100%;
 	position: absolute;
-	top: 50px;
+	bottom: 0;
 	z-index: -1;
+	width: 100%;
+	cursor: move;
 }
 
 .css3d{
-	-webkit-transition: -webkit-transform 1s;
 	background-color: #D1D1D1;
+	-webkit-transition: -webkit-transform 1s;
 }
 .ember-view :hover .css3d{
 	-webkit-transform: rotateX(45deg);

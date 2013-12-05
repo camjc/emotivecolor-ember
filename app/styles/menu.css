@@ -41,7 +41,7 @@ nav ul {
 }
 
 nav .active{
-  color: whitesmoke;
+  color: #eee;
   cursor: default;
 }
 
