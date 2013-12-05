@@ -1,7 +1,6 @@
 /* Put your CSS here */
 
 html{
-	overflow-y: scroll; /*Stops width of window changing*/
 	color: #444;
 	text-transform: lowercase;
 	background-color: #D1D1D1; /* Old Value: #F7F7F7; */
@@ -20,6 +19,7 @@ html{
 body{
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
 	font-weight: 300;
+	overflow-y: scroll; /*Stops width of window changing*/
 }
 
 a {
@@ -79,7 +79,7 @@ table{
 
 .blockcenter{
 	display: block;
-	width: 10em;
+	width: 14em;
 	margin: auto;
 	text-align: center;
 }

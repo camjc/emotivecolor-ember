@@ -1,7 +1,7 @@
 Emotivecolor.EmotionController = Ember.ObjectController.extend({
-    currentEmotion: function () {
-        return this.get('model').get('firstObject').get('emotion');
-    }.property('@each'),
+    // currentEmotion: function () {
+    //     return this.get('currentEmotion');
+    // }.property('@each'),
     // avgHSL: function () {
     //     var avgH = 0,
     //         avgS = 0,
