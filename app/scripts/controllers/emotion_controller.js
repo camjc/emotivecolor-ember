@@ -61,17 +61,17 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
     initClicker: function () {
         var self = this;
         self.set('projector', new THREE.Projector());
-        window.addEventListener('mousedown', function (event){
+        window.addEventListener('mousedown', function (event) {
             if (event.target === self.renderer.domElement) {
                 var camera = self.get('camera');
                 var scene = self.get('scene');
                 event.preventDefault();
-                var mouseX = (event.clientX / window.innerWidth)*2-1;
-                var mouseY = -(event.clientY / window.innerHeight)*2+1;
-                var vector = new THREE.Vector3( mouseX, mouseY, 0.5 );
-                self.projector.unprojectVector( vector, self.camera );
-                var raycaster = new THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
-                var intersects = raycaster.intersectObjects( scene.children );
+                var mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+                var mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+                var vector = new THREE.Vector3(mouseX, mouseY, 0.5);
+                self.projector.unprojectVector(vector, self.camera);
+                var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+                var intersects = raycaster.intersectObjects(scene.children);
                 if (intersects[0].point) {
                     console.log(intersects[0].point);
                 }
@@ -99,7 +99,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
     },
     drawCircle: function (context) {
         context.beginPath();
-        context.arc( 0, 0, 0.5, 0, 2 * Math.PI, true );
+        context.arc(0, 0, 0.5, 0, 2 * Math.PI, true);
         context.closePath();
         context.fill();
     },
@@ -187,7 +187,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
     actions: {
         resetCamera: function () {
             // This order is important
-            this.set('controls.target', new THREE.Vector3(0,0,0) );
+            this.set('controls.target', new THREE.Vector3(0, 0, 0));
             this.set('camera.position.x', 0);
             this.set('camera.position.z', 0);
             this.set('camera.position.y', 600);
