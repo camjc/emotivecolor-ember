@@ -1,9 +1,9 @@
-Emotivecolor.GraphView = Ember.View.extend({
-    templateName: '_graph',
-    tagName: "div",
-    classNameBindings: "defaultClass",
-    defaultClass: "graph-circle",
-});
+// Emotivecolor.GraphView = Ember.View.extend({
+//     templateName: '_graph',
+//     tagName: "div",
+//     classNameBindings: "defaultClass",
+//     defaultClass: "graph-circle",
+// });
 
 //  SVG VERSION (links don't work though.)
 //  Emotivecolor.GraphView = Ember.View.extend({
