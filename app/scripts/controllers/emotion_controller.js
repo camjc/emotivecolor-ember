@@ -27,7 +27,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         this.initRenderer();
         this.initControls();
         this.drawLines();
-        // this.initClicker();
+        this.initClicker();
         // Every Time:
         this.initContainer();
         this.animate();
@@ -58,24 +58,26 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         var self = this;
         self.set('controls', new THREE.OrbitControls(self.camera, self.renderer.domElement));
     },
-    // initClicker: function () {
-    //     var self = this;
-    //     self.set('projector', new THREE.Projector());
-    //     window.addEventListener('mousedown', function (event){
-    //         if (event.target === self.renderer.domElement) {
-    //             var camera = self.get('camera');
-    //             var scene = self.get('scene');
-    //             event.preventDefault();
-    //             var mouseX = (event.clientX / window.innerWidth)*2-1;
-    //             var mouseY = -(event.clientY / window.innerHeight)*2+1;
-    //             var vector = new THREE.Vector3( mouseX, mouseY, 0.5 );
-    //             self.projector.unprojectVector( vector, self.camera );
-    //             var raycaster = new THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
-    //             var intersects = raycaster.intersectObjects( scene.children );
-    //             console.log( intersects[0].point);
-    //         }
-    //     }, false);
-    // },
+    initClicker: function () {
+        var self = this;
+        self.set('projector', new THREE.Projector());
+        window.addEventListener('mousedown', function (event){
+            if (event.target === self.renderer.domElement) {
+                var camera = self.get('camera');
+                var scene = self.get('scene');
+                event.preventDefault();
+                var mouseX = (event.clientX / window.innerWidth)*2-1;
+                var mouseY = -(event.clientY / window.innerHeight)*2+1;
+                var vector = new THREE.Vector3( mouseX, mouseY, 0.5 );
+                self.projector.unprojectVector( vector, self.camera );
+                var raycaster = new THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
+                var intersects = raycaster.intersectObjects( scene.children );
+                if (intersects[0].point) {
+                    console.log(intersects[0].point);
+                }
+            }
+        }, false);
+    },
     initContainer: function () {
         var self = this;
         document.body.appendChild(self.get('renderer').domElement);

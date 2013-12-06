@@ -4,7 +4,7 @@
   "dependencies": {
     "ember": "~1.2.0",
     "ember-data-shim": "~1.0.0-beta.3",
-    "threejs": "r63"
+    "threejs": "https://github.com/camjc/three.js.git"
   },
   "devDependencies": {
     "ember-mocha-adapter": "~0.1.2"
