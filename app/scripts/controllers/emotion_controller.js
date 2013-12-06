@@ -26,6 +26,8 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         this.initCamera();
         this.initRenderer();
         this.initControls();
+        this.drawLines();
+        // this.initClicker();
         // Every Time:
         this.initContainer();
         this.animate();
@@ -58,6 +60,24 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         var self = this;
         self.set('controls', new THREE.OrbitControls(self.camera, self.renderer.domElement));
     },
+    // initClicker: function () {
+    //     var self = this;
+    //     self.set('projector', new THREE.Projector());
+    //     window.addEventListener('mousedown', function (event){
+    //         if (event.target === self.renderer.domElement) {
+    //             var camera = self.get('camera');
+    //             var scene = self.get('scene');
+    //             event.preventDefault();
+    //             var mouseX = (event.clientX / window.innerWidth)*2-1;
+    //             var mouseY = -(event.clientY / window.innerHeight)*2+1;
+    //             var vector = new THREE.Vector3( mouseX, mouseY, 0.5 );
+    //             self.projector.unprojectVector( vector, self.camera );
+    //             var raycaster = new THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
+    //             var intersects = raycaster.intersectObjects( scene.children );
+    //             console.log( intersects[0].point);
+    //         }
+    //     }, false);
+    // },
     initContainer: function () {
         var self = this;
         document.body.appendChild(self.get('renderer').domElement);
@@ -78,9 +98,8 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         }
     },
     drawCircle: function (context) {
-        var PI2 = Math.PI * 2;
         context.beginPath();
-        context.arc(0, 0, 4, 0, PI2, true);
+        context.arc( 0, 0, 0.5, 0, 2 * Math.PI, true );
         context.closePath();
         context.fill();
     },
@@ -108,7 +127,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
 
             geometry.colors = vertexColors;
             material = new THREE.ParticleSystemMaterial({
-                size: 50,
+                size: 30,
                 map: self.sprite,
                 vertexColors: true,
                 transparent: true
@@ -122,28 +141,50 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         } else if (self.get('rendererType') === 'canvas') {
 
             self.get('model').forEach(function (indiv, index) {
-                self.particleCount += 1;
+                self.spriteCount += 1;
                 var indivColor = new THREE.Color();
                 indivColor.setHex(indiv.get('hexo'));
                 var material = new THREE.SpriteCanvasMaterial({
                     color: indivColor,
                     program: self.drawCircle
                 });
-                indiv.particle = new THREE.Particle(material);
-                indiv.particle.position.x = indiv.get('radial3Y');
-                indiv.particle.position.y = indiv.get('radial3Z');
-                indiv.particle.position.z = indiv.get('radial3X');
+                indiv.sprite = new THREE.Sprite(material);
+                indiv.sprite.position.x = indiv.get('radial3Y');
+                indiv.sprite.position.y = indiv.get('radial3Z');
+                indiv.sprite.position.z = indiv.get('radial3X');
+                indiv.sprite.scale.x = indiv.sprite.scale.y = 5;
 
-                geometry.vertices.push(indiv.particle.position);
-                self.scene.add(indiv.particle);
+                geometry.vertices.push(indiv.sprite.position);
+                self.scene.add(indiv.sprite);
             });
         }
 
-        // self.scene.add(new THREE.Mesh(new THREE.SphereGeometry(50, 100, 100), new THREE.MeshNormalMaterial()));
+        // self.scene.add(new THREE.Mesh(new THREE.SphereGeometry(50, 10, 10), new THREE.MeshNormalMaterial()));
 
         return self.get('model.length');
 
     }.property('@each'),
+    drawLines: function () {
+
+        // Red
+        var material = new THREE.LineBasicMaterial({
+            color: 0xdddddd,
+            linewidth: 2
+        });
+        var geometry = new THREE.Geometry();
+        geometry.vertices.push(new THREE.Vector3(100, 0, 0));
+        geometry.vertices.push(new THREE.Vector3(0, 0, 0));
+        geometry.vertices.push(new THREE.Vector3(-50, 0, -86.6));
+        geometry.vertices.push(new THREE.Vector3(0, 0, 0));
+        geometry.vertices.push(new THREE.Vector3(-50, 0, 86.6));
+        geometry.vertices.push(new THREE.Vector3(0, 0, 0));
+        geometry.vertices.push(new THREE.Vector3(0, 100, 0));
+        geometry.vertices.push(new THREE.Vector3(0, -100, 0));
+
+        var line = new THREE.Line(geometry, material);
+
+        this.scene.add(line);
+    },
     actions: {
         delete: function (item) {
             // this tells Ember-Data to delete the color passed in as item

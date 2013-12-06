@@ -43,7 +43,7 @@ Emotivecolor.Color.reopen({
         return Math.cos(this.degToRad(this.get('h'))) * this.get('s');
     }.property('h', 's'),
     radial3Z: function () {
-        return (this.get('l') * 3) - 150;
+        return (this.get('l') * 2) - 100;
     }.property('l'),
     // size: function () {
     //     return ((this.get('l') + (this.get('s') / 2)) / 8).toFixed(2);

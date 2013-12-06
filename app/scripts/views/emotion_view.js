@@ -11,7 +11,7 @@ Emotivecolor.EmotionView = Ember.View.extend({
             controller.particles = [];
         } else if (controller.get('rendererType') === 'canvas') {
             controller.get('model').forEach(function (indiv) { //For 2D Canvas
-                controller.scene.remove(indiv.particle);
+                controller.scene.remove(indiv.sprite);
             });
         }
 
