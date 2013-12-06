@@ -50,7 +50,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             self.set('renderer', new THREE.CanvasRenderer());
         }
 
-        self.renderer.setSize(1280, 720);
+        self.renderer.setSize(window.screen.width, (window.screen.width / 16) * 9);
         self.renderer.setClearColor(0xD1D1D1, 1);
         self.scene.fog = new THREE.FogExp2(0xD1D1D1, 0.0001);
     },
@@ -149,6 +149,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
                     program: self.drawCircle
                 });
                 indiv.sprite = new THREE.Sprite(material);
+                // indiv.sprite.name = indiv.get('hex');
                 indiv.sprite.position.x = indiv.get('radial3Y');
                 indiv.sprite.position.y = indiv.get('radial3Z');
                 indiv.sprite.position.z = indiv.get('radial3X');
