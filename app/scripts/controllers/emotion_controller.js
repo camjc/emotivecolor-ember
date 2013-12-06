@@ -45,11 +45,9 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             self.set('renderer', new THREE.WebGLRenderer({
                 antialias: true
             }));
-            self.set('rendererType', 'webgl');
             self.sprite = THREE.ImageUtils.loadTexture("images/circleB.png"); //Isn't found on compile because of renaming
         } else {
             self.set('renderer', new THREE.CanvasRenderer());
-            self.set('rendererType', 'canvas');
         }
 
         self.renderer.setSize(1280, 720);
@@ -112,14 +110,14 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             self.initContainer();
             self.animate();
         }
-        if (self.get('rendererType') === 'webgl') {
+        if (self.get('renderer') instanceof THREE.WebGLRenderer) {
 
             self.get('model').forEach(function (indiv, index) {
 
                 var vertex = new THREE.Vector3();
                 vertex.x = indiv.get('radial3Y');
                 vertex.y = indiv.get('radial3Z');
-                vertex.z = indiv.get('radial3X'); //Reordered for controls to work more naturally.
+                vertex.z = indiv.get('radial3X'); //Reordered for controls to work more naturally (Orbit controls are Y-up).
                 geometry.vertices.push(vertex);
                 vertexColors.push(new THREE.Color());
                 vertexColors[index].setHex(indiv.get('hexo'));
@@ -138,7 +136,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
 
             self.scene.add(self.particles);
 
-        } else if (self.get('rendererType') === 'canvas') {
+        } else { // Canvas
 
             self.get('model').forEach(function (indiv, index) {
                 self.spriteCount += 1;
@@ -165,8 +163,6 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
 
     }.property('@each'),
     drawLines: function () {
-
-        // Red
         var material = new THREE.LineBasicMaterial({
             color: 0xdddddd,
             linewidth: 2
@@ -184,8 +180,16 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         var line = new THREE.Line(geometry, material);
 
         this.scene.add(line);
+        // TODO: Change to Vertex colors (mid gray to whatever the full color/shade is)
     },
     actions: {
+        resetCamera: function () {
+            // This order is important
+            this.set('controls.target', new THREE.Vector3(0,0,0) );
+            this.set('camera.position.x', 0);
+            this.set('camera.position.z', 0);
+            this.set('camera.position.y', 600);
+        },
         delete: function (item) {
             // this tells Ember-Data to delete the color passed in as item
             this.get('model').removeObject(item);

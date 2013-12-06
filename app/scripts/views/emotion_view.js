@@ -6,10 +6,10 @@ Emotivecolor.EmotionView = Ember.View.extend({
         // controller.scene.remove(controller.camera);
 
         // Cleanup visualised model.
-        if (controller.get('rendererType') === 'webgl') {
+        if (controller.get('renderer') instanceof THREE.WebGLRenderer) {
             controller.scene.remove(controller.particles); // For WebGL
             controller.particles = [];
-        } else if (controller.get('rendererType') === 'canvas') {
+        } else {
             controller.get('model').forEach(function (indiv) { //For 2D Canvas
                 controller.scene.remove(indiv.sprite);
             });
