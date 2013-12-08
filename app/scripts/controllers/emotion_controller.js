@@ -61,19 +61,19 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
     initClicker: function () {
         var self = this;
         self.set('projector', new THREE.Projector());
-        window.addEventListener('mousedown', function (event) {
+        window.addEventListener('dblclick', function (event) {
             if (event.target === self.renderer.domElement) {
                 var camera = self.get('camera');
                 var scene = self.get('scene');
                 event.preventDefault();
                 var mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-                var mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+                var mouseY = -(event.clientY / window.innerHeight) * 2 + 1; // This needs work
                 var vector = new THREE.Vector3(mouseX, mouseY, 0.5);
                 self.projector.unprojectVector(vector, self.camera);
                 var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
                 var intersects = raycaster.intersectObjects(scene.children);
-                if (intersects[0].point) {
-                    console.log(intersects[0].point);
+                if (intersects[0]) {
+                    self.transitionToRoute('color', intersects[0].point.w);
                 }
             }
         }, false);
@@ -116,10 +116,11 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
 
             self.get('model').forEach(function (indiv, index) {
 
-                var vertex = new THREE.Vector3();
+                var vertex = new THREE.Vector4();
                 vertex.x = indiv.get('radial3Y');
                 vertex.y = indiv.get('radial3Z');
                 vertex.z = indiv.get('radial3X'); //Reordered for controls to work more naturally (Orbit controls are Y-up).
+                vertex.w = indiv.get('id');
                 geometry.vertices.push(vertex);
                 vertexColors.push(new THREE.Color());
                 vertexColors[index].setHex(indiv.get('hexo'));
@@ -149,7 +150,6 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
                     program: self.drawCircle
                 });
                 indiv.sprite = new THREE.Sprite(material);
-                // indiv.sprite.name = indiv.get('hex');
                 indiv.sprite.position.x = indiv.get('radial3Y');
                 indiv.sprite.position.y = indiv.get('radial3Z');
                 indiv.sprite.position.z = indiv.get('radial3X');

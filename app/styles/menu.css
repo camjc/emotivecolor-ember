@@ -40,6 +40,13 @@ nav ul {
   line-height: 4em;
 }
 
+nav li{
+  padding: 0.5em;
+}
+nav li:last-child{
+  padding-right: 0;
+}
+
 nav {
   color: #eee;
 }
@@ -82,5 +89,6 @@ nav .active:hover{
   nav[role="navigation"] input:checked ~ ul > li {
     display: block;
     width: 100%;
+    padding: 0;
   }
 }

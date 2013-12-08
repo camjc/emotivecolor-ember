@@ -10,6 +10,9 @@ Emotivecolor.ColorController = Ember.ObjectController.extend({
 		return this.get('colorName');
 	}.property('hex'),
     actions: {
+        back: function () {
+            history.back(-1);
+        },
         delete: function (item) {
             // this tells Ember-Data to delete the color passed in as item
             this.get('model').deleteRecord(item);
