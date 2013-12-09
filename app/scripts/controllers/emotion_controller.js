@@ -73,7 +73,8 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
                 var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
                 var intersects = raycaster.intersectObjects(scene.children);
                 if (intersects[0]) {
-                    self.transitionToRoute('color', intersects[0].point.w);
+                    var intersectId = intersects[0].point.w || intersects[0].object.name;
+                    self.transitionToRoute('color', intersectId); /* intersects[0].point.w | */
                 }
             }
         }, false);
@@ -153,6 +154,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
                 indiv.sprite.position.x = indiv.get('radial3Y');
                 indiv.sprite.position.y = indiv.get('radial3Z');
                 indiv.sprite.position.z = indiv.get('radial3X');
+                indiv.sprite.name = indiv.get('id');
                 indiv.sprite.scale.x = indiv.sprite.scale.y = 5;
 
                 geometry.vertices.push(indiv.sprite.position);
