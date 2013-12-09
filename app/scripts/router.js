@@ -7,9 +7,5 @@ Emotivecolor.Router.map(function () {
     this.resource('emotion', { path: '/emotion/:emotion' });
     this.resource('vis');
     this.resource('about', { path: '/' });
-    // this.route('login');
-    // //protected route that's inaccessible without authentication
-    // this.route('protected');
+    
 });
-
-// Emotivecolor.ProtectedRoute = Ember.Route.extend(Ember.SimpleAuth.AuthenticatedRouteMixin);

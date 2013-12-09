@@ -1,10 +1,3 @@
-// Emotivecolor.ColorNewController = Ember.ObjectController.extend({
-//   save: function () {
-//     // we're cheating here that there's no commit()
-//     // but the UI element is already bound to the model
-//     this.transitionToRoute('color',this.get('model'));
-//   }
-// });
 Emotivecolor.ColorNewController = Ember.ObjectController.extend({
     currentColor: null,
     colorName: null,
@@ -34,10 +27,10 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
         this.set('userAgent', navigator.userAgent); //Set UserAgent
     },
     posData: function () {
-        var _self = this;
+        var self = this;
 
         function displayPosition(position) {
-            _self.setProperties({
+            self.setProperties({
                 'currentLat': position.coords.latitude,
                 'currentLng': position.coords.longitude
             });
@@ -67,12 +60,12 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
         }
     },
     lumData: function () {
-        var _self = this,
+        var self = this,
             listener = function (event) {
                 // Read out the lux value
-                _self.set('currentLum', event.value);
+                self.set('currentLum', event.value);
                 //Just grab the luminosity once and then remove the event handler.
-                if (_self.get('currentLum') !== null) {
+                if (self.get('currentLum') !== null) {
                     this.removeEventListener('devicelight', arguments.callee, false);
                 }
             };

@@ -23,6 +23,7 @@
         "DS": true,
         "ntc": true,
         "THREE": true,
-        "requestAnimationFrame": true
+        "requestAnimationFrame": true,
+        "Detector": true
     }
 }

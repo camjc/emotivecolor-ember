@@ -1,9 +1,8 @@
 Emotivecolor.EmotionView = Ember.View.extend({
     templateName: 'emotion',
+    //remove threejs after leaving the view
     willClearRender: function () {
-        //remove threejs after leaving the view
         var controller = this.get('controller');
-        // controller.scene.remove(controller.camera);
 
         // Cleanup visualised model.
         if (controller.get('renderer') instanceof THREE.WebGLRenderer) {
@@ -15,11 +14,6 @@ Emotivecolor.EmotionView = Ember.View.extend({
             });
         }
 
-        // controller.renderer.clear();
-        // controller.camera = null;
-        // controller.scene = null;
-        // controller.renderer = null;
-        
         // Remove the element from the page.
         jQuery('canvas').remove();
         controller.set('renderCanvas', null);

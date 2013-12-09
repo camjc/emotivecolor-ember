@@ -1,17 +1,8 @@
 <div {{!-- class='hide' --}}>
 <h1>{{mesher}} {{currentEmotion}} colors</h1>
-{{!-- {{partial 'css3d'}}
- --}}
- {{!-- <button {{action "swapVis"}}>Swap Visualisations</button>
-{{#if circleVis}}
-    {{partial '3dVisualiser'}}
-{{else}}
-    {{view Emotivecolor.GraphView}}
-    {{view Emotivecolor.PlotView}}
-{{/if}} --}}
 <button {{action 'resetCamera'}}>Reset View</button>
 <br/>
-{{#link-to 'emotions' class='btn'}}Back to Emotions List{{/link-to}}
+{{#link-to 'emotions' class='btn'}}Back{{/link-to}}
 
 {{!-- {{partial 'table'}} --}}
 

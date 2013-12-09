@@ -1,25 +1,4 @@
 Emotivecolor.EmotionController = Ember.ObjectController.extend({
-    // currentEmotion: function () {
-    //     return this.get('currentEmotion');
-    // }.property('@each'),
-    // avgHSL: function () {
-    //     var avgH = 0,
-    //         avgS = 0,
-    //         avgL = 0,
-    //         self = this;
-
-    //     self.get('model').forEach(function (indiv, index) {
-    //         avgH += indiv.get('h');
-    //         avgS += indiv.get('s');
-    //         avgL += indiv.get('l');
-    //     });
-
-    //     avgH = Math.round(avgH / self.get('model.length'));
-    //     avgS = Math.round(avgS / self.get('model.length'));
-    //     avgL = Math.round(avgL / self.get('model.length'));
-
-    //     return avgH + ', ' + avgS + '%, ' + avgL + '%';
-    // }.property('@each'),
     init: function () {
         // First Time:
         this.initScene();
@@ -41,11 +20,14 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
     },
     initRenderer: function () {
         var self = this;
-        if (window.WebGLRenderingContext) {
+        if (Detector.webgl) {
             self.set('renderer', new THREE.WebGLRenderer({
                 antialias: true
             }));
-            self.sprite = THREE.ImageUtils.loadTexture("images/circleB.png"); //Isn't found on compile because of renaming
+            var image = document.createElement('img');
+            image.src = 'data:image/png;base64,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'; // Saves another request.
+            self.texture = new THREE.Texture(image);
+            self.texture.needsUpdate = true;
         } else {
             self.set('renderer', new THREE.CanvasRenderer());
         }
@@ -130,7 +112,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             geometry.colors = vertexColors;
             material = new THREE.ParticleSystemMaterial({
                 size: 30,
-                map: self.sprite,
+                map: self.texture,
                 vertexColors: true,
                 transparent: true
             });
@@ -195,20 +177,5 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             this.set('camera.position.z', 0);
             this.set('camera.position.y', 600);
         },
-        delete: function (item) {
-            // this tells Ember-Data to delete the color passed in as item
-            this.get('model').removeObject(item);
-            this.get('model').save().then(function () {
-                Emotivecolor.alertController.popObject(); // Removes Previous Message
-                Emotivecolor.alertController.pushObject(Ember.Object.create({
-                    message: "Deleted a color."
-                }));
-            }, function () {
-                Emotivecolor.alertController.popObject(); // Removes Previous Message
-                Emotivecolor.alertController.pushObject(Ember.Object.create({
-                    message: "Could not delete this color."
-                }));
-            });
-        }
     }
 });

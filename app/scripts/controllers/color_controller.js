@@ -1,7 +1,15 @@
 Emotivecolor.ColorController = Ember.ObjectController.extend({
-	needs: ['color_new'],
+    controlColor: function (bgHex) {
+        var rgb = ntc.rgb('#' + bgHex),
+            luma = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]; // per ITU-R BT.709
+
+        if (luma < 128) { // If it is too dark for black
+            return '#fff';
+        }
+        return '#333';
+    },
 	fillStyle: function () {
-		jQuery('body').css('color', this.get('controllers.color_new').controlColor(this.get('hex')));
+		jQuery('body').css('color', this.controlColor(this.get('hex')));
 		return 'background-color:#' + this.get('hex');
 	}.property('hex'),
 	getName: function () {
