@@ -3,7 +3,7 @@ Emotivecolor.EmotionView = Ember.View.extend({
     //remove threejs after leaving the view
     willClearRender: function () {
         var controller = this.get('controller');
-
+        // controller.cleanup(); ???
         // Cleanup visualised model.
         if (controller.get('renderer') instanceof THREE.WebGLRenderer) {
             controller.scene.remove(controller.particles); // For WebGL

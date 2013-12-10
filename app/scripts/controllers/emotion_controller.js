@@ -1,4 +1,5 @@
 Emotivecolor.EmotionController = Ember.ObjectController.extend({
+    isEmotionVisible: false,
     init: function () {
         // First Time:
         this.initScene();
@@ -180,6 +181,19 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         this.scene.add(line);
         // TODO: Change to Vertex colors (mid gray to whatever the full color/shade is)
     },
+    cleanup: function () {
+        var self = this;
+
+        // Cleanup visualised model.
+        if (self.get('renderer') instanceof THREE.WebGLRenderer) {
+            self.scene.remove(self.particles); // For WebGL
+            self.particles = [];
+        } else {
+            self.get('model').forEach(function (indiv) { //For 2D Canvas
+                self.scene.remove(indiv.sprite);
+            });
+        }
+    },
     actions: {
         resetCamera: function () {
             // This order is important
@@ -187,6 +201,13 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             this.set('camera.position.x', 0);
             this.set('camera.position.z', 0);
             this.set('camera.position.y', 600);
+        },
+        click: function (emotion) {
+            this.cleanup();
+            this.transitionToRoute('emotion', emotion);
+        },
+        toggleModal: function () {
+            this.toggleProperty('isEmotionVisible');
         },
     }
 });

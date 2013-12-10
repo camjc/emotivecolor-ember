@@ -1,8 +1,12 @@
-<div {{!-- class='hide' --}}>
 <h1>{{mesher}} {{currentEmotion}} colors</h1>
-{{#link-to 'emotions' class='btn'}}Back{{/link-to}}
+{{!-- {{#link-to 'emotions' class='btn'}}Back{{/link-to}} --}}
 <button {{action 'resetCamera'}}>Reset View</button>
-{{!-- {{partial 'table'}} --}}
+<button {{action 'toggleModal'}}>Change Emotion</button>
 
-{{outlet}}
-</div>
+{{#if isEmotionVisible}}
+    <div class="modal emotion-modal">
+        {{partial 'controls'}}
+        <button {{action 'click' 'All'}} class="btn blockcenter">All Colors</button>
+        <h1 class='textcenter'>Select an emotion to view</h1>
+    </div>
+{{/if}}

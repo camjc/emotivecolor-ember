@@ -1,4 +1,6 @@
-/* Put your CSS here */
+/* ==========================================================================
+   Globals
+   ========================================================================== */
 
 html{
 	color: #444;
@@ -76,6 +78,10 @@ table{
 	width: 100%;
 }
 
+/* 
+   Utilities
+   ========================================================================== */
+
 .clear{
 	clear: both;
 }
@@ -102,40 +108,13 @@ table{
 	margin: auto;
 }
 
-.alert-box{
-	padding: 1em 0;
-	line-height: 1em;
-	color: #fff;
-	cursor: pointer;
-	background-color: #888;
-	border-bottom: 2px solid whitesmoke;
+.list-left{
+	padding: 0;
 }
 
-.alerts-view{
-	min-height: 3.5em;
-}
-
-.ico-close{
-	float: right;
-}
-
-.ico-contribute, .ico-analyse{
-	position: relative;
-}
-
-.ico-contribute:before{
-	content: '⊙';
-	position: absolute;
-	left: -14px;
-	bottom: 1px;
-}
-
-.ico-analyse:before{
-	content: '∴';
-	position: absolute;
-	left: -12px;
-	bottom: 2px;
-}
+/* ==========================================================================
+   Button Module
+   ========================================================================== */
 
 .btn, button{
 	padding: 0.5em 2em;
@@ -168,6 +147,36 @@ table{
 .btn.blockcenter{ /*Center button should not be full width*/
 	width: 14em;
 }
+
+/* ==========================================================================
+   Alert Box Module
+   ========================================================================== */
+
+.alert-box{
+	padding: 1em 0;
+	line-height: 1em;
+	color: #fff;
+	cursor: pointer;
+	background-color: #888;
+	border-bottom: 2px solid #F5F5F5;
+}
+
+.alerts-view{
+	min-height: 3.5em;
+}
+
+.ico-close{
+	float: right;
+}
+
+/* ==========================================================================
+   Modal Module
+   ========================================================================== */
+
+.modal{
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
 
 /* ==========================================================================
    Input Controls Module
@@ -207,21 +216,3 @@ canvas{
 /*	width: 100%;*/
 	cursor: move;
 }
-
-/*.graph-circle-svg{
-	position: relative;
-	width: 100%;
-	margin: auto;
-}*/
-
-
-/*
-@media (min-width: 384px) {
-	svg{
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		margin-top: -192px;
-		margin-left: -192px;
-	}
-}*/
