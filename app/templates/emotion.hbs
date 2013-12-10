@@ -4,7 +4,7 @@
 <button {{action 'toggleModal'}}>Change Emotion</button>
 
 {{#if isEmotionVisible}}
-    <div class="modal emotion-modal">
+    <div {{action 'toggleModal'}} class="modal emotion-modal">
         {{partial 'controls'}}
         <button {{action 'click' 'All'}} class="btn blockcenter">All Colors</button>
         <h1 class='textcenter'>Select an emotion to view</h1>

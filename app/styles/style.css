@@ -174,9 +174,34 @@ table{
    ========================================================================== */
 
 .modal{
+	position: absolute;
+	top: 50px;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	background-color: rgba(255, 255, 255, 0.5);
 }
 
+/*.modal-close{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 2em;
+	line-height: 2em;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	background-color: #AAA;
+	border: 2px solid white;
+	border-radius: 50%;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+.modal-close:hover{
+	background-color: #888;
+}*/
 
 /* ==========================================================================
    Input Controls Module

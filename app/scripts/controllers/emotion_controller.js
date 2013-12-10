@@ -205,6 +205,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         click: function (emotion) {
             this.cleanup();
             this.transitionToRoute('emotion', emotion);
+            this.toggleProperty('isEmotionVisible');
         },
         toggleModal: function () {
             this.toggleProperty('isEmotionVisible');
