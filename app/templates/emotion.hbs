@@ -1,10 +1,12 @@
-<h1>{{mesher}} {{currentEmotion}} colors</h1>
+<h1>{{mesher}} {{currentEmotion}} colors from {{#if isAllUsers}}Everyone{{else}}You{{/if}}</h1>
 {{!-- {{#link-to 'emotions' class='btn'}}Back{{/link-to}} --}}
 <button {{action 'resetCamera'}}>Reset View</button>
-<button {{action 'toggleModal'}}>Change Emotion</button>
+<button {{action 'toggleEmotionModal'}}>Change Emotion</button>
+<button {{action 'toggleAllUsers'}}>{{#if isAllUsers}}Show Your Results{{else}}Show Everyone's Results{{/if}}</button>
+
 
 {{#if isEmotionVisible}}
-    <div {{action 'toggleModal'}} class="modal emotion-modal">
+    <div {{action 'toggleEmotionModal'}} class="modal emotion-modal">
         {{partial 'controls'}}
         <button {{action 'click' 'All'}} class="btn blockcenter">All Colors</button>
         <h1 class='textcenter'>Select an emotion to view</h1>

@@ -1,5 +1,6 @@
 Emotivecolor.EmotionController = Ember.ObjectController.extend({
     isEmotionVisible: false,
+    isAllUsers: true,
     init: function () {
         // First Time:
         this.initScene();
@@ -207,8 +208,11 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             this.transitionToRoute('emotion', emotion);
             this.toggleProperty('isEmotionVisible');
         },
-        toggleModal: function () {
+        toggleEmotionModal: function () {
             this.toggleProperty('isEmotionVisible');
         },
+        toggleAllUsers: function () {
+            this.toggleProperty('isAllUsers');
+        }
     }
 });
