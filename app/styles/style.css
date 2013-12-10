@@ -17,9 +17,16 @@ html{
 }
 
 body{
+	overflow-y: scroll; /*Stops width of window changing*/
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
 	font-weight: 300;
-	overflow-y: scroll; /*Stops width of window changing*/
+}
+
+::selection {
+	background: #fff; /* Safari */
+}
+::-moz-selection {
+	background: #fff; /* Firefox */
 }
 
 a {
@@ -27,6 +34,7 @@ a {
 	color: inherit;
 	text-decoration: none;
 }
+
 a:hover{
 	text-decoration: underline;
 }
@@ -56,7 +64,6 @@ th, td{
 td a{
 	display: block;
 }
-
 
 header{
 	color: #FFF;
@@ -112,14 +119,32 @@ table{
 	float: right;
 }
 
+.ico-contribute, .ico-analyse{
+	position: relative;
+}
+
+.ico-contribute:before{
+	content: '⊙';
+	position: absolute;
+	left: -14px;
+	bottom: 1px;
+}
+
+.ico-analyse:before{
+	content: '∴';
+	position: absolute;
+	left: -12px;
+	bottom: 2px;
+}
+
 .btn, button{
 	padding: 0.5em 2em;
-	line-height: 1.5em;
+	font-weight: 300; /* User Agent overrides to normal on button */
 	color: #FFF;
 	text-decoration: none;
+	text-transform: lowercase; /* User Agent overrides to normal on button */
 	cursor: pointer;
 	background-color: #AAA;
-	border: none;
 	border: 2px solid #FFF;
 	box-sizing: border-box;
 	appearance: none;
@@ -129,9 +154,8 @@ table{
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
-	text-transform: lowercase; /* User Agent overrides to normal on button */
-
 }
+
 .btn:hover, button:hover{
 	text-decoration: none;
 	background-color: #888;
@@ -139,10 +163,6 @@ table{
 
 .btn:active, button:active{
 	background-color: #555;
-}
-
-.btn-warning:hover{ /* Fix */
-	background-color: red;
 }
 
 .btn.blockcenter{ /*Center button should not be full width*/
@@ -177,45 +197,15 @@ table{
 }
 
 /* ==========================================================================
-   Graph Module
+   Visualizer Module
    ========================================================================== */
-
-.graph{
-	position: relative;
-	width: 100%; /* Accommodate the 360% of hues. HACKY */
-	padding-bottom: 56.25%; /* 16 by 9 aspect ratio */
-}
-
-.graph-circle{
-	position: relative;
-	width: 30%;
-	padding-bottom: 30%;
-	margin: 0 auto 30%;
-}
-
-.graph-item{
-	position: absolute;
-	display: block;
-	width: 4%;
-	padding-bottom: 4%; /* Square aspect ratio */
-	margin: -2% 0 0 -2%;
-	border-radius: 50%;
-}
 
 canvas{
 	position: absolute;
 	bottom: 0;
 	z-index: -1;
-	width: 100%;
+/*	width: 100%;*/
 	cursor: move;
-}
-
-.css3d{
-	background-color: #D1D1D1;
-	-webkit-transition: -webkit-transform 1s;
-}
-.ember-view :hover .css3d{
-	-webkit-transform: rotateX(45deg);
 }
 
 /*.graph-circle-svg{

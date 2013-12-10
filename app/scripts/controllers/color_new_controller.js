@@ -1,11 +1,4 @@
 Emotivecolor.ColorNewController = Ember.ObjectController.extend({
-    currentColor: null,
-    colorName: null,
-    currentLat: null,
-    currentLng: null,
-    userAgent: null,
-    currentLum: null,
-    selectedEmotion: null,
     emotions: [
         'Happy',
         'Flirty',
@@ -18,10 +11,15 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
         'Neutral',
     ],
     init: function () {
-        this.send('generatedColor');
+        this.generatedColor();
         this.userData();
         this.posData();
         this.lumData();
+    },
+    generatedColor: function () {
+        var genCol = ('000000' + (Math.floor(Math.random() * 0xFFFFFF)).toString(16)).slice(-6); // Not sure if this is random enough. Seems to favour non-dark colors.
+        this.set('currentColor', genCol);
+        this.set('hex', genCol);
     },
     userData: function () {
         this.set('userAgent', navigator.userAgent); //Set UserAgent
@@ -90,11 +88,6 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
         return this.get('colorName');
     }.property('hex'),
     actions: {
-        generatedColor: function () {
-            var genCol = ('000000' + (Math.floor(Math.random() * 0xFFFFFF)).toString(16)).slice(-6);
-            this.set('currentColor', genCol);
-            this.set('hex', genCol);
-        },
         click: function (emotion) {
             // Create the new Color model
             var thisColor = this.get('currentColor'),
@@ -132,7 +125,7 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
                     message: 'Failed to save to database'
                 }));
             });
-            this.send('generatedColor');
+            this.generatedColor();
         }
     }
 });

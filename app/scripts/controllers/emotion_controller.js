@@ -7,6 +7,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         this.initControls();
         this.drawLines();
         this.initClicker();
+        this.resizeWindow(); // Doesn't work alongsize Clicker yet.
         // Every Time:
         this.initContainer();
         this.animate();
@@ -15,7 +16,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         this.set('scene', new THREE.Scene());
     },
     initCamera: function () {
-        this.set('camera', new THREE.PerspectiveCamera(20, 1280 / 720, 1, 20000));
+        this.set('camera', new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 1, 20000));
         this.set('camera.position.y', 600);
     },
     initRenderer: function () {
@@ -32,7 +33,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             self.set('renderer', new THREE.CanvasRenderer());
         }
 
-        self.renderer.setSize(window.screen.width, (window.screen.width / 16) * 9);
+        self.renderer.setSize(window.innerWidth, window.innerHeight);
         self.renderer.setClearColor(0xD1D1D1, 1);
         self.scene.fog = new THREE.FogExp2(0xD1D1D1, 0.0001);
     },
@@ -45,11 +46,11 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         self.set('projector', new THREE.Projector());
         window.addEventListener('dblclick', function (event) {
             if (event.target === self.renderer.domElement) {
+                event.preventDefault();
                 var camera = self.get('camera');
                 var scene = self.get('scene');
-                event.preventDefault();
                 var mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-                var mouseY = -(event.clientY / window.innerHeight) * 2 + 1; // This needs work
+                var mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
                 var vector = new THREE.Vector3(mouseX, mouseY, 0.5);
                 self.projector.unprojectVector(vector, self.camera);
                 var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
@@ -65,6 +66,16 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         var self = this;
         document.body.appendChild(self.get('renderer').domElement);
         self.set('renderCanvas', true);
+    },
+    resizeWindow: function () {
+        var self = this,
+            callback = function () {
+                self.renderer.setSize(window.innerWidth, window.innerHeight);
+                self.camera.aspect = window.innerWidth / window.innerHeight;
+                self.camera.updateProjectionMatrix();
+            };
+
+        window.addEventListener('resize', callback, false);
     },
     render: function () {
         var self = this;
