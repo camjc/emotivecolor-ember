@@ -117,7 +117,7 @@ table{
    ========================================================================== */
 
 .btn, button{
-	padding: 0.5em 2em;
+	padding: .5em 2em;
 	font-weight: 300; /* User Agent overrides to normal on button */
 	color: #FFF;
 	text-decoration: none;
@@ -240,4 +240,19 @@ canvas{
 	z-index: -1;
 /*	width: 100%;*/
 	cursor: move;
+	-webkit-transition: -webkit-filter .1s ease-in-out;
+	transition: filter .1s ease-in-out; /* Future Standard? */
+}
+
+canvas.blur{
+	-webkit-filter: blur(5px);
+	filter: blur(5px); /* Future Standard? */
+}
+
+/* ==========================================================================
+   Facebook Module
+   ========================================================================== */
+
+.ico-fb{
+	border-radius: 50%;
 }

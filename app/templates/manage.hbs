@@ -1,0 +1,20 @@
+<h1>Manage User Account</h1>
+{{#if Emotivecolor.FBUser}}
+    <div>
+        {{!-- id,name,location,gender,hometown,age_range,political,religion,sports,education,relationship_status,languages,locale --}}
+        <img class='ico-fb' {{bindAttr src="Emotivecolor.FBUser.picture.data.url" alt="Emotivecolor.FBUser.name"}} />
+        <ul class='list-left'>
+            <li>{{Emotivecolor.FBUser.name}}</li>
+            <li>{{Emotivecolor.FBUser.gender}}</li>
+            <li>{{Emotivecolor.FBUser.location.name}}</li>
+            <li>{{Emotivecolor.FBUser.hometown.name}}</li>
+            <li>{{Emotivecolor.FBUser.age_range.min}}</li> {{!-- Not working --}}
+            <li>{{Emotivecolor.FBUser.locale}}</li>
+        </ul>
+        <a href="#" {{action "logout" target="FB"}}>Logout</a>
+    </div>
+{{else}}
+    {{#view Em.FacebookView type="login-button" data-size="medium" data-scope="email, offline_access"}}
+        Connect
+    {{/view}}
+{{/if}}

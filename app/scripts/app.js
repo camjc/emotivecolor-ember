@@ -1,6 +1,6 @@
-var Emotivecolor = window.Emotivecolor = Ember.Application.create({
-    LOG_TRANSITIONS: true
-});
+var Emotivecolor = window.Emotivecolor = Ember.Application.createWithMixins(Em.Facebook);
+Emotivecolor.set('appId', '538053639619169')
+
 
 /* Order and include as you please. */
 require('scripts/controllers/*');

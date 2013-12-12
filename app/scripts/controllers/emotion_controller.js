@@ -207,9 +207,11 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             this.cleanup();
             this.transitionToRoute('emotion', emotion);
             this.toggleProperty('isEmotionVisible');
+            jQuery('canvas').removeClass('blur');
         },
         toggleEmotionModal: function () {
             this.toggleProperty('isEmotionVisible');
+            jQuery('canvas').toggleClass('blur');
         },
         toggleAllUsers: function () {
             this.toggleProperty('isAllUsers');
