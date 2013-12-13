@@ -19,6 +19,8 @@ Emotivecolor.Color = DS.Model.extend({
     ua: DS.attr('string'),
 
     lum: DS.attr('number'),
+    
+    userid: DS.attr('number'),
 });
 
 Emotivecolor.Color.reopen({
@@ -37,4 +39,9 @@ Emotivecolor.Color.reopen({
     radial3Z: function () {
         return (this.get('l') * 2) - 100;
     }.property('l'),
+    mine: function () {
+        if (this.get('userid') === parseInt(Emotivecolor.FBUser.id)) {
+            return true;
+        }
+    }.property('userid', 'Emotivecolor.FBUser.id'),
 });

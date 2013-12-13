@@ -8,12 +8,18 @@
             <li>Currently in: {{Emotivecolor.FBUser.location.name}}</li>
             <li>Hometown: {{Emotivecolor.FBUser.hometown.name}}</li>
             <li>{{Emotivecolor.FBUser.age_range}}</li> {{!-- Not working --}}
+            <li>{{Emotivecolor.FBUser.birthday}}</li> {{!-- Not working --}}
             <li>{{Emotivecolor.FBUser.locale}}</li>
+            <li>{{Emotivecolor.FBUser.languages}}</li>
+            <li>{{Emotivecolor.FBUser.relationship_status}}</li>
+            <li>{{Emotivecolor.FBUser.education}}</li>
+            <li>{{Emotivecolor.FBUser.sports}}</li>
+            <li>{{Emotivecolor.FBUser.religion}}</li>
+            <li>{{Emotivecolor.FBUser.political}}</li>
+            <li>{{Emotivecolor.FBUser.id}}</li>
         </ul>
-        <a href="#" {{action "logout" target="FB"}}>Logout</a>
+        <button {{action "logout" target="FB"}}>Logout</button>
     </div>
 {{else}}
-    {{#view Em.FacebookView type="login-button" data-size="medium" data-scope="email, offline_access"}}
-        Connect
-    {{/view}}
+        <button {{action "login" target="FB"}}>Login</button>
 {{/if}}

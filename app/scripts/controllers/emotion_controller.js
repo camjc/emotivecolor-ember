@@ -110,7 +110,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         }
         if (self.get('renderer') instanceof THREE.WebGLRenderer) {
 
-            self.get('model').forEach(function (indiv, index) {
+            self.get('filteredContent').forEach(function (indiv, index) {
 
                 var vertex = new THREE.Vector4();
                 vertex.x = indiv.get('radial3Y');
@@ -137,7 +137,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
 
         } else { // Canvas
 
-            self.get('model').forEach(function (indiv, index) {
+            self.get('filteredContent').forEach(function (indiv, index) {
                 self.spriteCount += 1;
                 var indivColor = new THREE.Color();
                 indivColor.setHex(indiv.get('hexo'));
@@ -159,9 +159,9 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
 
         // self.scene.add(new THREE.Mesh(new THREE.SphereGeometry(50, 10, 10), new THREE.MeshNormalMaterial()));
 
-        return self.get('model.length');
+        return self.get('filteredContent.length');
 
-    }.property('@each'),
+    }.property('@each', 'isAllUsers'),
     drawLines: function () {
         var material = new THREE.LineBasicMaterial({
             color: 0xdddddd,
@@ -195,6 +195,17 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             });
         }
     },
+    filteredContent: function () {
+        var model = this.get('model');
+
+        if (!model || this.get('isAllUsers')) {
+            return model;
+        }
+
+        return model.filter(function (item) {
+            return item.get('mine');
+        });
+    }.property('model.isLoaded', 'isAllUsers'),
     actions: {
         resetCamera: function () {
             // This order is important
@@ -214,6 +225,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             jQuery('canvas').toggleClass('blur');
         },
         toggleAllUsers: function () {
+            this.cleanup();
             this.toggleProperty('isAllUsers');
         }
     }

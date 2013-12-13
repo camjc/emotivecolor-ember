@@ -105,6 +105,7 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
                     lng: this.get('currentLng'),
                     ua: this.get('userAgent'),
                     lum: this.get('currentLum'),
+                    userid: Emotivecolor.FBUser.id,
                 }),
                 messageColorName = this.get('colorName'); // Otherwise it may have changed by the time the message appears. 
 
