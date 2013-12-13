@@ -225,6 +225,9 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             jQuery('canvas').toggleClass('blur');
         },
         toggleAllUsers: function () {
+            if(Emotivecolor.FBUser.id === undefined && this.isAllUsers === true) {
+                this.transitionToRoute('manage'); // If logged out redirect to login page before showing user's colors (Should redirect after login)
+            }
             this.cleanup();
             this.toggleProperty('isAllUsers');
         }
