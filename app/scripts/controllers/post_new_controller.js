@@ -1,4 +1,4 @@
-Emotivecolor.ColorNewController = Ember.ObjectController.extend({
+Emotivecolor.PostNewController = Ember.ObjectController.extend({
     emotions: [
         'Happy',
         'Flirty',
@@ -89,9 +89,9 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
     }.property('hex'),
     actions: {
         click: function (emotion) {
-            // Create the new Color model
+            // Create the new Post model item
             var thisColor = this.get('currentColor'),
-                color = this.store.createRecord('color', {
+                post = this.store.createRecord('post', {
                     hex: thisColor,
                     emotion: emotion,
                     r: ntc.rgb('#' + thisColor)[0],
@@ -115,7 +115,7 @@ Emotivecolor.ColorNewController = Ember.ObjectController.extend({
             }
 
             // Save the new model
-            color.save().then(function () {
+            post.save().then(function () {
                 Emotivecolor.alertController.popObject(); // Removes Previous Message
                 Emotivecolor.alertController.pushObject(Ember.Object.create({
                     message: messageColorName + ' made you feel ' + emotion + '.'

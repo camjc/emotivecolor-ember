@@ -1,4 +1,4 @@
-Emotivecolor.ColorController = Ember.ObjectController.extend({
+Emotivecolor.PostController = Ember.ObjectController.extend({
     controlColor: function (bgHex) {
         var rgb = ntc.rgb('#' + bgHex),
             luma = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]; // per ITU-R BT.709
@@ -22,15 +22,15 @@ Emotivecolor.ColorController = Ember.ObjectController.extend({
             history.back(-1);
         },
         delete: function (item) {
-            // this tells Ember-Data to delete the color passed in as item
+            // this tells Ember-Data to delete the post passed in as item
             this.get('model').deleteRecord(item);
             this.get('model').save().then(function () {
                 Emotivecolor.alertController.popObject(); // Removes Previous Message
-                Emotivecolor.alertController.pushObject(Ember.Object.create({ message:  "Deleted a color." }));
+                Emotivecolor.alertController.pushObject(Ember.Object.create({ message:  "Deleted a post." }));
                 Emotivecolor.transitionToRoute('about'); //Doesn't do anything yet.
             }, function () {
                 Emotivecolor.alertController.popObject(); // Removes Previous Message
-                Emotivecolor.alertController.pushObject(Ember.Object.create({ message:  "Could not delete this color." }));
+                Emotivecolor.alertController.pushObject(Ember.Object.create({ message:  "Could not delete this post." }));
             });
         }
     }

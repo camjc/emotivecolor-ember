@@ -19,4 +19,5 @@ Emotivecolor.User = DS.Model.extend({
     religion: ('string'),
     political: ('string'),
 
+    posts: DS.hasMany('post'),
 });

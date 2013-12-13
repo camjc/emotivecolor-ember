@@ -1,7 +1,7 @@
 Emotivecolor.Router.map(function () {
 
-    this.resource('color', { path: '/color/:color_id' });
-    this.resource('color.new', { path: '/color/new' });
+    this.resource('post', { path: '/post/:post_id' });
+    this.resource('post.new', { path: '/post/new' });
     this.resource('emotions');
     this.resource('emotion', { path: '/emotion/:emotion' });
     this.resource('about', { path: '/' });

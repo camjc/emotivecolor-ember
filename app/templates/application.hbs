@@ -4,7 +4,7 @@
         <label for='menu' onclick></label>
         <h1>{{#link-to 'about'}}Emotive Color{{/link-to}}</h1>
         <ul>
-            <li>{{#link-to 'color.new'}}⊙ Contribute{{/link-to}}</li>
+            <li>{{#link-to 'post.new'}}⊙ Contribute{{/link-to}}</li>
             <li>{{#link-to 'emotion' 'All'}}∴ Analyse{{/link-to}}</li>
             <li>{{#if Emotivecolor.FBUser}}{{#link-to 'manage'}}{{Emotivecolor.FBUser.first_name}}{{/link-to}}{{else}}<a href="#" {{action "login" target="FB"}}>Login</a>{{/if}}</li>
         </ul>

@@ -59,7 +59,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
                 var intersects = raycaster.intersectObjects(scene.children);
                 if (intersects[0]) {
                     var intersectId = intersects[0].point.w || intersects[0].object.name;
-                    self.transitionToRoute('color', intersectId); /* intersects[0].point.w | */
+                    self.transitionToRoute('post', intersectId); /* intersects[0].point.w | */
                 }
             }
         }, false);
@@ -226,7 +226,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         },
         toggleAllUsers: function () {
             if(Emotivecolor.FBUser.id === undefined && this.isAllUsers === true) {
-                this.transitionToRoute('manage'); // If logged out redirect to login page before showing user's colors (Should redirect after login)
+                this.transitionToRoute('manage'); // If logged out redirect to login page before showing user's posts (Should redirect after login)
             }
             this.cleanup();
             this.toggleProperty('isAllUsers');

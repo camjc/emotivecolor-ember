@@ -1,4 +1,4 @@
-Emotivecolor.Color = DS.Model.extend({
+Emotivecolor.Post = DS.Model.extend({
     hex: DS.attr('string'),
 
     emotion: DS.attr('string'),
@@ -21,9 +21,10 @@ Emotivecolor.Color = DS.Model.extend({
     lum: DS.attr('number'),
     
     userid: DS.attr('number'),
+    // user: DS.belongsTo('user')
 });
 
-Emotivecolor.Color.reopen({
+Emotivecolor.Post.reopen({
     hexo: function () {
         return '0x' + this.get('hex');
     }.property('hex'),
