@@ -91,6 +91,7 @@ Emotivecolor.PostNewController = Ember.ObjectController.extend({
         click: function (emotion) {
             // Create the new Post model item
             var thisColor = this.get('currentColor'),
+                // thisUser = Emotivecolor.FBUser,
                 post = this.store.createRecord('post', {
                     hex: thisColor,
                     emotion: emotion,
@@ -105,7 +106,7 @@ Emotivecolor.PostNewController = Ember.ObjectController.extend({
                     lng: this.get('currentLng'),
                     ua: this.get('userAgent'),
                     lum: this.get('currentLum'),
-                    userid: Emotivecolor.FBUser.id,
+                    // userid: thisUser
                 }),
                 messageColorName = this.get('colorName'); // Otherwise it may have changed by the time the message appears. 
 

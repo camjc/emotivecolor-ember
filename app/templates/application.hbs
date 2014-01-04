@@ -6,7 +6,7 @@
         <ul>
             <li>{{#link-to 'post.new'}}⊙ Contribute{{/link-to}}</li>
             <li>{{#link-to 'emotion' 'All'}}∴ Analyse{{/link-to}}</li>
-            <li>{{#if Emotivecolor.FBUser}}{{#link-to 'manage'}}{{Emotivecolor.FBUser.first_name}}{{/link-to}}{{else}}<a href="#" {{action "login" target="FB"}}>Login</a>{{/if}}</li>
+            <li>{{#if Emotivecolor.FBUser}}{{#link-to 'user'}}{{Emotivecolor.FBUser.first_name}}{{/link-to}}{{else}}<a href="#" {{action "login" target="FB"}}>Login</a>{{/if}}</li>
         </ul>
     </nav>
 </header>

@@ -226,7 +226,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         },
         toggleAllUsers: function () {
             if(Emotivecolor.FBUser.id === undefined && this.isAllUsers === true) {
-                this.transitionToRoute('manage'); // If logged out redirect to login page before showing user's posts (Should redirect after login)
+                this.transitionToRoute('user'); // If logged out redirect to login page before showing user's posts (Should redirect after login)
             }
             this.cleanup();
             this.toggleProperty('isAllUsers');

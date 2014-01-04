@@ -20,8 +20,8 @@ Emotivecolor.Post = DS.Model.extend({
 
     lum: DS.attr('number'),
     
-    userid: DS.attr('number'),
-    // user: DS.belongsTo('user')
+    // userid: DS.attr('number'),
+    user: DS.belongsTo('user')
 });
 
 Emotivecolor.Post.reopen({

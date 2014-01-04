@@ -112,6 +112,18 @@ table{
 	padding: 0;
 }
 
+.list-nostyle{
+	list-style: none;
+}
+
+.normalcase{
+	text-transform: none;
+}
+
+.text-large{
+	font-size: 2em;
+}
+
 /* ==========================================================================
    Button Module
    ========================================================================== */
@@ -207,6 +219,12 @@ table{
    Input Controls Module
    ========================================================================== */
 
+.controls-wrap{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .controls{
 	display: block;
 	width: 30em;
@@ -255,4 +273,13 @@ canvas.blur{
 
 .ico-fb{
 	border-radius: 50%;
+}
+
+/* ==========================================================================
+   Maps Module
+   ========================================================================== */
+
+.map-fb{
+	max-width: 100%;
+	padding: .5em 0 0 0;
 }

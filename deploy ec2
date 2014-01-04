@@ -1,0 +1,3 @@
+sudo rsync -rave "ssh -i /Volumes/Aphrodite/Users/Cam/.ec2/bloop.pem" /Volumes/Aphrodite/Users/Cam/Sites/mongodb bitnami@54.206.49.138:/home/bitnami/apps
+
+sudo rsync -rave "ssh -i /Volumes/Aphrodite/Users/Cam/.ec2/bloop.pem" /Volumes/Aphrodite/Users/Cam/Sites/emotivecolor-ember bitnami@54.206.49.138:/home/bitnami/apps
