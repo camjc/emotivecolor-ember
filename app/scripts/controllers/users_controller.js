@@ -9,7 +9,7 @@ Emotivecolor.UsersController = Ember.ObjectController.extend({
 
                 age_range: thisUser.id,
                 birthday: function(){
-                    return new Date( (this.User).replace( /(\d{2})\/(\d{2})\/(\d{4})/, "$1/$2/$3") ); // Or something like this. Convert mm/dd/yyyy into a date object for the db
+                    return new Date( (this.User).replace( /(\d{2})\/(\d{2})\/(\d{4})/, "$1/$2/$3") ); // Convert mm/dd/yyyy into a date object for the db
                 },
 
                 gender: thisUser.gender,

@@ -1,3 +1,8 @@
+@import "compass/css3";
+@import "susy";
+@import "normalize";
+@import "menu";
+
 /* ==========================================================================
    Globals
    ========================================================================== */
@@ -6,6 +11,9 @@ html{
 	color: #444;
 	text-transform: lowercase;
 	background-color: #D1D1D1; /* Old Value: #F7F7F7; */
+	-moz-font-feature-settings: 'kern' 1;
+	-webkit-font-feature-settings: 'kern' 1;
+	font-feature-settings: 'kern' 1;
 }
 
 .bg-color{
@@ -15,12 +23,13 @@ html{
 	bottom: 0;
 	left: 0;
 	z-index: -1;
+	padding-top: 6em;
 	transition: background-color 0.25s ease-in-out;
 }
 
 body{
 	overflow-y: scroll; /*Stops width of window changing*/
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
+	font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
 	font-weight: 300;
 }
 
@@ -121,7 +130,14 @@ table{
 }
 
 .text-large{
-	font-size: 2em;
+	@media(min-width: 44em){
+		font-size: 2em;
+	}
+}
+
+.pull-right{
+	display: block;
+	float: right;
 }
 
 /* ==========================================================================
@@ -158,6 +174,31 @@ table{
 
 .btn.blockcenter{ /*Center button should not be full width*/
 	width: 14em;
+}
+
+.btn-fb{
+	$Cfb: #4c66a4;
+	background-color: $Cfb;
+	&:hover{
+		background-color: darken($Cfb, 13);
+	}
+	&:active{
+		background-color: darken($Cfb, 33);
+	}
+}
+
+.btn-cta{
+	$Ccta: #95c2e7;
+	background-color: transparent;
+	@media (min-width: 21em){
+		font-size: 1.5em;
+	}
+	&:hover{
+		background-color: darken($Ccta, 13);
+	}
+	&:active{
+		background-color: darken($Ccta, 33);
+	}
 }
 
 /* ==========================================================================
@@ -219,18 +260,15 @@ table{
    Input Controls Module
    ========================================================================== */
 
-.controls-wrap{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
 .controls{
 	display: block;
 	width: 30em;
 	max-width: 100%;
 	max-height: 80%;
 	margin: 2em auto;
+	@media (min-height: 52em){
+		margin: 7em auto;
+	}
 }
 
 .controls-control:hover{
@@ -256,30 +294,173 @@ canvas{
 	position: absolute;
 	bottom: 0;
 	z-index: -1;
+	transition: filter .1s ease-in-out; /* Future Standard? */
 /*	width: 100%;*/
 	cursor: move;
 	-webkit-transition: -webkit-filter .1s ease-in-out;
-	transition: filter .1s ease-in-out; /* Future Standard? */
 }
 
 canvas.blur{
-	-webkit-filter: blur(5px);
 	filter: blur(5px); /* Future Standard? */
+	-webkit-filter: blur(5px);
+}
+
+// // /* ==========================================================================
+// //    Facebook Module
+// //    ========================================================================== */
+
+// // .ico-fb{
+// // 	border-radius: 50%;
+// // }
+
+// /* ==========================================================================
+//    Media Module
+//    ========================================================================== */
+
+// .media-block{
+// 	min-height: 20em;
+// 	margin: 2em 0;
+// 	float: left;
+// 	width: 50%;
+// 	display: table;
+// 	img{
+// 		box-shadow: 0 0 0 2px white;
+// 	}
+// 	h1, p{
+// 		display: table-cell;
+// 		text-align: center;
+// 		vertical-align: middle;
+// 		padding: 2em;
+// 	}
+// }
+
+// .media-full{
+// 	width: 100%;
+// }
+
+
+/* ==========================================================================
+   Login Module
+   ========================================================================== */
+
+@media (min-width: 44em){
+	.login{
+		float: left;
+		width: 600px;
+		padding-left: 50%;
+		margin-top: 22em;
+		margin-left: -300px;
+		text-align: center;
+		> div {
+			float: left;
+			&:last-child {
+				float: right;
+			}
+		}
+	}
 }
 
 /* ==========================================================================
-   Facebook Module
+   About Module
    ========================================================================== */
 
-.ico-fb{
-	border-radius: 50%;
+.about-jumbotron{
+	position: relative;
+	color: white;
 }
 
-/* ==========================================================================
-   Maps Module
-   ========================================================================== */
-
-.map-fb{
-	max-width: 100%;
-	padding: .5em 0 0 0;
+.about-title{
+	font-size: 2.4em;
+	font-weight: 100;
+	text-align: right;
+	@media(min-width: 41em){
+		font-size: 5.9em;
+	}
+	@media(min-width: 82em){
+		margin-bottom: .5em;
+		font-size: 12.5em;
+	}
 }
+
+.about-credits{
+	position: absolute;
+	width: 100%;
+	text-align: right;
+	bottom: -.5em;
+	font-weight: 100;
+}
+
+.about-item{
+	@media(min-width: 45em) and (max-width: 84em){
+		@include span-columns(6,12);
+		@include nth-omega(2n);
+	}
+	@media(min-width: 84em){
+		@include span-columns(4,12);
+		@include nth-omega(3n);
+	}
+	p,img{
+		display: block;
+		width: 100%;
+		margin: 0 auto 1em;
+	}
+}
+
+.about-cta{
+	@include omega;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+.about-bg{
+	@include background-image(linear-gradient(-45deg, #95c2e7, #ac76c8));
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: -1;
+	min-height: 100%;
+	padding-top: 6em;
+}
+
+.about-tech-text{
+	@include span-columns(1,1);
+	padding-bottom: .5em;
+}
+
+.about-logo{
+	@media(max-width:26em){
+		@include span-columns(1,2);
+		@include nth-omega(2n);
+	}
+	@media(min-width: 26em) and (max-width:68em){
+		@include span-columns(1,4);
+		@include nth-omega(4n);
+	}
+	@media(min-width:68em){
+		@include span-columns(1,8);
+		@include nth-omega(8n);
+	}
+	img{
+		display: block;
+		width: 100%;
+		margin-bottom: 2em;
+		position: relative;
+		@include transition(.1s top ease-in-out);
+	}
+	&:hover img{
+		top: -.5em;
+	}
+}
+
+// .about-logo-frontend{
+// 	@include span-columns(2,10);
+// 	@include nth-omega(5n);
+// }
+
+// .about-logo-backend{
+// 	@include span-columns(2,10);
+// 	&:first-child{
+// 		@include prefix(1);
+// 	}
+// }

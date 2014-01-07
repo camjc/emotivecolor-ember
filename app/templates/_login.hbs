@@ -1,0 +1,21 @@
+<div class="login">
+    <div class="login-anon">
+        <button {{action "anonUser"}}>
+            Use anonymously
+        </button>
+        <p>
+            No filtering of demographics,<br>
+            only see global color data.
+        </p>
+    </div>
+
+    <div class="login-fb">
+        <button class='btn-fb' {{action "login" target="FB"}}>
+            Login with Facebook
+        </button>
+        <p>
+            Contributes to your demographic,<br>
+            making your data more useful for all.
+        </p>
+    </div>
+</div>

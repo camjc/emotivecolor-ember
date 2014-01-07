@@ -1,22 +1,56 @@
-<h1>About</h1>
-<p><em>Emotive Color</em> aims to reach a better understanding of how <strong>colors</strong> create <strong>emotional&nbsp;responses</strong>.
-<br/>We collect <strong>data</strong> from users, matching colors to each <strong>demographic's</strong> emotional&nbsp;repsonses.
-<br/>This information is then <strong>presented spacially</strong>, enabling targeted, <strong>accurate</strong> usage of individual colors instead of&nbsp;guesswork.
-<br/>By using each person's own monitor to display the colors the resultant emotions reflect what they would normally see.</p>
-<br/>
-{{#link-to 'post.new' class='btn'}}Contribute some data{{/link-to}}
+<div class="about-bg">
+    <div class="container">
+        <div class="about-jumbotron">
+            <h1 class="about-title">Emotive Color</h1>
+            <h2 class="about-credits">by <a href='http://camjc.com'>CamJC</a></h2>
+        </div>
 
-<h4><em>Emotive Color</em> Uses:</h4>
-<ul class='list-left'>
-    <li>Ember.js</li>
-    <li>Three.js (WebGL & 2D Canvas)</li>
-    <li>HTML5</li>
-    <li>CSS3</li>
-    <li>SVG</li>
-</ul>
-<ul class='list-left'>
-    <li>Node.js</li>
-    <li>Express.js</li>
-    <li>MongoDB</li>
-</ul>
-<h4>By <a href='http://camjc.com'>CamJC</a></h4>
+        <div class="about-grid">
+            <div class="about-item">
+                <img src="images/match-c.svg" alt="">
+                <p><em>Emotive Color</em> aims to reach a better un&shy;der&shy;stand&shy;ing of how <strong>colors</strong> create <strong>emotional&nbsp;responses</strong>.</p>
+            </div>
+            <div class="about-item">
+                <img src="images/melbourne.png"/> <!--http://maps.googleapis.com/maps/api/staticmap?center=Melbourne+Australia&zoom=15&size=640x360&sensor=false" alt="Map of Melbourne, Australia -->
+                <p>We collect <strong>data</strong> from users, match&shy;ing colors to each <strong>demo&shy;graphic's</strong> emotional&nbsp;responses.</p>
+            </div>
+            <div class="about-item">
+                <img src="images/spatial.png" alt="">
+                <p>This information is <strong>pre&shy;sented spatial&shy;ly</strong>, en&shy;a&shy;bling <strong>tar&shy;get&shy;ed</strong> use of color, eliminating&nbsp;guesswork.</p>
+            </div>
+            <div class="about-item about-cta">
+                {{#link-to 'post.new' class='btn pull-right btn-cta'}}Start matching{{/link-to}}
+            </div>
+        </div>
+
+
+        <p class='about-tech-text'>Emotive Color uses these <strong>technologies</strong>:</p>
+        <div class="about-tech">
+            <a class="about-logo" title="HTML5" href="http://www.w3.org/TR/html5/">
+                <img src="images/logos/html5.svg" alt="HTML5">
+            </a>
+            <a class="about-logo" title="CSS3" href="http://www.w3.org/Style/CSS/">
+                <img src="images/logos/css3.svg" alt="CSS3">
+            </a>
+            <a class="about-logo" title="SVG" href="http://www.w3.org/Graphics/SVG/">
+                <img src="images/logos/svg.svg" alt="SVG">
+            </a>
+            <a class="about-logo" title="Ember.js" href="http://emberjs.com/">
+                <img src="images/logos/emberjs.svg" alt="Ember.js">
+            </a>
+            <a class="about-logo" title="Three.js" href="http://threejs.org/">
+                <img src="images/logos/threejs.svg" alt="three.js">
+            </a>
+
+            <a class="about-logo" title="Node.js" href="http://nodejs.org/">
+                <img src="images/logos/nodejs_2.svg" alt="Nodejs">
+            </a>
+            <a class="about-logo" title="Express.js" href="http://expressjs.com/">
+                <img src="images/logos/expressjs.svg" alt="Express.js">
+            </a>
+            <a class="about-logo" title="MongoDB" href="http://www.mongodb.org/">
+            <img src="images/logos/mongodb_2.svg" alt="MongoDB">
+            </a>
+        </div>
+    </div>
+</div>

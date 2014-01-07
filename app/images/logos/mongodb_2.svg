@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+	 id="svg6517" sodipodi:docname="mongoDB.svg" inkscape:version="0.48+devel r12304" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="96px" height="96px"
+	 viewBox="0 0 96 96" enable-background="new 0 0 96 96" xml:space="preserve">
+<filter  style="color-interpolation-filters:sRGB;" id="filter950" inkscape:label="Drop Shadow">
+	<feFlood  result="flood" id="feFlood952" flood-color="rgb(0,0,0)" flood-opacity="0.25"></feFlood>
+	<feComposite  in="flood" operator="in" in2="SourceGraphic" result="composite1" id="feComposite954"></feComposite>
+	<feGaussianBlur  in="composite1" stdDeviation="1" result="blur" id="feGaussianBlur956"></feGaussianBlur>
+	<feOffset  dx="0" dy="1" result="offset" id="feOffset958"></feOffset>
+	<feComposite  in="SourceGraphic" operator="over" in2="offset" result="composite2" id="feComposite960"></feComposite>
+</filter>
+<filter  id="filter891" inkscape:collect="always" inkscape:label="Badge Shadow">
+	<feGaussianBlur  stdDeviation="0.71999962" id="feGaussianBlur893" inkscape:collect="always"></feGaussianBlur>
+</filter>
+<sodipodi:namedview  id="base" inkscape:snap-center="true" inkscape:snap-object-midpoints="true" inkscape:snap-midpoints="true" inkscape:snap-smooth-nodes="true" inkscape:object-nodes="true" inkscape:object-paths="true" inkscape:snap-bbox-midpoints="true" inkscape:bbox-nodes="true" inkscape:bbox-paths="true" inkscape:snap-bbox="true" inkscape:snap-global="false" inkscape:showpageshadow="false" inkscape:guide-bbox="true" inkscape:window-maximized="1" inkscape:window-y="24" inkscape:window-x="0" inkscape:window-height="1029" inkscape:window-width="1920" fit-margin-bottom="0" fit-margin-right="0" inkscape:current-layer="layer1" inkscape:document-units="px" inkscape:pageshadow="2" inkscape:pageopacity="0.0" inkscape:snap-intersection-paths="true" inkscape:snap-bbox-edge-midpoints="true" pagecolor="#ffffff" borderopacity="1.0" inkscape:cy="-8.9039887" fit-margin-top="0" showborder="true" inkscape:cx="98.673408" inkscape:zoom="3.2596289" showgrid="false" bordercolor="#666666" showguides="false" fit-margin-left="0">
+	<inkscape:grid  type="xygrid" id="grid821"></inkscape:grid>
+	<sodipodi:guide  id="guide823" position="16,48" orientation="1,0"></sodipodi:guide>
+	<sodipodi:guide  id="guide825" position="64,80" orientation="0,1"></sodipodi:guide>
+	<sodipodi:guide  id="guide827" position="80,40" orientation="1,0"></sodipodi:guide>
+	<sodipodi:guide  id="guide829" position="64,16" orientation="0,1"></sodipodi:guide>
+</sodipodi:namedview>
+<g id="layer1" transform="translate(268,-635.29076)" inkscape:groupmode="layer" inkscape:label="BACKGROUND">
+	<g id="g904" transform="matrix(0.18303902,0,0,0.18303902,-61.510334,551.26852)" filter="url(#filter950)">
+		
+			<linearGradient id="path1268_2_" gradientUnits="userSpaceOnUse" x1="996.845" y1="-13304.4629" x2="955.0903" y2="-13277.6807" gradientTransform="matrix(0.183 0 0 -0.183 -952.3749 -1652.5623)">
+			<stop  offset="0" style="stop-color:#E3E2CE"/>
+			<stop  offset="0.4508" style="stop-color:#CECEB5"/>
+			<stop  offset="1" style="stop-color:#95966F"/>
+		</linearGradient>
+		<path id="path1268_1_" sodipodi:nodetypes="cssccccssc" inkscape:connector-curvature="0" fill="url(#path1268_2_)" d="
+			M-868.2,524.605c-1.091-0.176,2.246,6.32-5.762,16.465c-8.627,10.932-78.09,55.876-80.25,176.971
+			c-1.475,82.494,63.695,140.088,80.261,150.823c0,0,6.109,21.213,6.309,46.241l10.951,2.854
+			c-1.312-25.737-1.686-40.612,5.751-51.971c10.425-4.908,76.145-61.153,73.339-148.118
+			c-3.34-103.598-61.516-148.523-78.066-170.123C-862.827,538.41-865.887,524.805-868.2,524.605z"/>
+		
+			<linearGradient id="path871_2_" gradientUnits="userSpaceOnUse" x1="708.1108" y1="-13711.9307" x2="707.9808" y2="-13390.8047" gradientTransform="matrix(0.183 0 0 -0.183 -952.3749 -1652.5623)">
+			<stop  offset="0" style="stop-color:#198332"/>
+			<stop  offset="1" style="stop-color:#24933B"/>
+		</linearGradient>
+		<path id="path871_1_" sodipodi:nodetypes="cscssc" inkscape:connector-curvature="0" fill="url(#path871_2_)" d="M-868.2,524.605
+			c6.024,19.476,4.911,108.162,6.21,193.265c1.179,77.185-13.325,137.079,11.049,148.118c10.425-4.908,76.145-61.153,73.339-148.118
+			c-3.34-103.598-61.516-148.523-78.066-170.123C-862.827,538.41-865.887,524.805-868.2,524.605z"/>
+		
+			<linearGradient id="path873_2_" gradientUnits="userSpaceOnUse" x1="-28.4338" y1="-13275.6045" x2="131.2869" y2="-13126.7451" gradientTransform="matrix(0.183 0 0 -0.183 -952.3749 -1652.5623)">
+			<stop  offset="0" style="stop-color:#0F9B36"/>
+			<stop  offset="1" style="stop-color:#64BB66"/>
+		</linearGradient>
+		<path id="path873_1_" inkscape:connector-curvature="0" fill="url(#path873_2_)" d="M-868.187,524.603
+			c-1.094-0.173,2.225,6.325-5.781,16.47c-8.63,10.932-78.09,55.874-80.25,176.968c-1.475,82.489,63.714,140.078,80.28,150.812
+			c4.556-2.091,6.738-23.593,8.72-48.498c0.147-26.41,3.836-62.049,3.217-102.472c-1.219-79.784-0.315-162.739-5.156-188.842
+			c-0.011-0.067-0.019-0.123-0.029-0.189C-867.514,527.436-867.845,526.019-868.187,524.603z"/>
+	</g>
+</g>
+<g id="layer3" inkscape:groupmode="layer" inkscape:label="PLACE YOUR PICTOGRAM HERE">
+</g>
+<g id="layer2" sodipodi:insensitive="true" inkscape:groupmode="layer" inkscape:label="BADGE" display="none">
+	<g id="g4394" transform="translate(-340.00001,-581)" display="inline">
+		<g id="g855">
+			<g id="g870" inkscape:groupmode="maskhelper" opacity="0.6" filter="url(#filter891)">
+				<path id="path844_1_" sodipodi:cy="552.36218" sodipodi:rx="12" sodipodi:ry="12" sodipodi:cx="252" sodipodi:type="arc" d="
+					M366,591c0,9.941-8.059,18-18,18s-18-8.059-18-18s8.059-18,18-18S366,581.059,366,591z"/>
+			</g>
+			<g id="g862">
+				
+					<path id="path4398" sodipodi:cy="552.36218" sodipodi:rx="12" sodipodi:ry="12" sodipodi:cx="252" sodipodi:type="arc" fill="#F5F5F5" d="
+					M366,590c0,9.941-8.059,18-18,18s-18-8.059-18-18s8.059-18,18-18S366,580.059,366,590z"/>
+				
+					<path id="path4400" sodipodi:cy="552.36218" sodipodi:rx="12" sodipodi:ry="12" sodipodi:cx="252" sodipodi:type="arc" fill="#DD4814" d="
+					M363,590c0,8.284-6.716,15-15,15s-15-6.716-15-15s6.716-15,15-15S363,581.716,363,590z"/>
+				
+					<path id="path4459" inkscape:randomized="0" inkscape:rounded="0.1" inkscape:flatsided="false" sodipodi:cy="589.50385" sodipodi:sides="5" sodipodi:r2="4.3458705" sodipodi:r1="7.2431178" sodipodi:cx="666.19574" sodipodi:type="star" sodipodi:arg2="1.6755161" sodipodi:arg1="1.0471976" fill="#F5F5F5" d="
+					M354.511,598.909c-0.554,0.405-5.792-2.284-6.479-2.281c-0.687,0.002-5.908,2.724-6.465,2.322
+					c-0.557-0.402,0.381-6.215,0.167-6.868c-0.214-0.652-4.416-4.777-4.206-5.431c0.21-0.654,6.028-1.558,6.583-1.963
+					c0.554-0.405,3.179-5.676,3.865-5.678c0.688-0.002,3.345,5.252,3.901,5.654c0.557,0.402,6.381,1.269,6.595,1.922
+					c0.214,0.652-3.961,4.803-4.172,5.458C354.09,592.697,355.065,598.503,354.511,598.909z"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

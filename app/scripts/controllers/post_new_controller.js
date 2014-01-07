@@ -40,7 +40,10 @@ Emotivecolor.PostNewController = Ember.ObjectController.extend({
                 2: 'Position unavailable',
                 3: 'Request timeout'
             };
-            console.log('Error: ' + errors[error.code]);
+            Emotivecolor.alertController.popObject(); // Removes Previous Message
+            Emotivecolor.alertController.pushObject(Ember.Object.create({
+                    message: 'Error: ' + errors[error.code]
+            }));
         }
 
         if (navigator.geolocation) {
@@ -54,7 +57,10 @@ Emotivecolor.PostNewController = Ember.ObjectController.extend({
                 }
             );
         } else {
-            console.log('Geolocation is not supported by this browser');
+            Emotivecolor.alertController.popObject(); // Removes Previous Message
+            Emotivecolor.alertController.pushObject(Ember.Object.create({
+                    message: 'Geolocation is not supported by this browser'
+            }));
         }
     },
     lumData: function () {
@@ -88,10 +94,13 @@ Emotivecolor.PostNewController = Ember.ObjectController.extend({
         return this.get('colorName');
     }.property('hex'),
     actions: {
+        anonUser: function () {
+           Emotivecolor.set('FBUser', 'anonymous');
+        },
         click: function (emotion) {
             // Create the new Post model item
             var thisColor = this.get('currentColor'),
-                // thisUser = Emotivecolor.FBUser,
+                thisUser = Emotivecolor.FBUser,
                 post = this.store.createRecord('post', {
                     hex: thisColor,
                     emotion: emotion,
@@ -106,7 +115,7 @@ Emotivecolor.PostNewController = Ember.ObjectController.extend({
                     lng: this.get('currentLng'),
                     ua: this.get('userAgent'),
                     lum: this.get('currentLum'),
-                    // userid: thisUser
+                    userid: thisUser
                 }),
                 messageColorName = this.get('colorName'); // Otherwise it may have changed by the time the message appears. 
 

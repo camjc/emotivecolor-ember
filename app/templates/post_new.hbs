@@ -1,6 +1,8 @@
-<div class='bg-color' {{bindAttr style='fillStyle'}}></div>
-<h1 class='hide'>{{getName}}</h1>
-
-{{partial 'controls'}}
-
-{{outlet}}
+{{#if Emotivecolor.FBUser}}
+    <div class='bg-color' {{bindAttr style='fillStyle'}}>
+        <h1 class='hide'>#{{currentColor}} – {{getName}}</h1>
+        {{partial 'controls'}}
+    </div>
+{{else}}
+    {{partial 'login'}}
+{{/if}}

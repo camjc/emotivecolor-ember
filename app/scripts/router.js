@@ -5,6 +5,5 @@ Emotivecolor.Router.map(function () {
     this.resource('emotions');
     this.resource('emotion', { path: '/emotion/:emotion' });
     this.resource('about', { path: '/' });
-    this.resource('user');
 
 });

@@ -225,9 +225,9 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             jQuery('canvas').toggleClass('blur');
         },
         toggleAllUsers: function () {
-            if(Emotivecolor.FBUser.id === undefined && this.isAllUsers === true) {
-                this.transitionToRoute('user'); // If logged out redirect to login page before showing user's posts (Should redirect after login)
-            }
+            // if(Emotivecolor.FBUser.id === undefined && this.isAllUsers === true) {
+            //     this.transitionToRoute('user'); // If logged out redirect to login page before showing user's posts (Should redirect after login)
+            // }
             this.cleanup();
             this.toggleProperty('isAllUsers');
         }

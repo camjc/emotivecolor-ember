@@ -1,0 +1,29 @@
+{{#if Emotivecolor.FBUser}}
+    <div class="media-grid">
+        <div class="media-block media-full">
+            <img class='ico-fb' {{bindAttr src="Emotivecolor.FBUser.picture.data.url" alt="Emotivecolor.FBUser.name"}} />
+            <button {{action "logout" target="FB"}}>Logout</button>
+            <h1 class='normalcase'>{{Emotivecolor.FBUser.name}}<h1>
+        </div>
+
+        <div class="media-block">
+        <p class='text-large'>{{Emotivecolor.FBUser.gender}}</p>
+        </div>
+
+        <div class="media-block">
+        <p class='text-large'>{{Emotivecolor.FBUser.birthday}}</p>
+        </div>
+
+        <div class="media-block">
+        <img class='map-fb' src="http://maps.googleapis.com/maps/api/staticmap?center={{unbound Emotivecolor.FBUser.location.name}}&zoom=14&size=320x320&sensor=false" alt="{{unbound Emotivecolor.FBUser.location.name}}"/>
+        <p class='text-large'>In {{Emotivecolor.FBUser.location.name}}</p>
+        </div>
+
+        <div class="media-block">
+        <img class='map-fb' src="http://maps.googleapis.com/maps/api/staticmap?center={{unbound Emotivecolor.FBUser.hometown.name}}&zoom=14&size=320x320&sensor=false" alt="{{unbound Emotivecolor.FBUser.hometown.name}}"/>
+        <p class='text-large'>From {{Emotivecolor.FBUser.hometown.name}}</p>
+        </div>
+    </div>
+{{else}}
+    <button {{action "login" target="FB"}}>Login</button>
+{{/if}}
