@@ -103,7 +103,8 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
         var self = this,
             geometry = new THREE.Geometry(),
             vertexColors = [],
-            material;
+            material,
+            eachSize = -0.00082467 * self.get('filteredContent.length') + 31.9; //More colours = smaller dots //NOT WORKING WHEN BUILT
         if (self.get('renderCanvas') === null) { //Initalize scene if it hasn't already (returning to view)
             self.initContainer();
             self.animate();
@@ -124,7 +125,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
 
             geometry.colors = vertexColors;
             material = new THREE.ParticleSystemMaterial({
-                size: 30,
+                size: eachSize,
                 map: self.texture,
                 vertexColors: true,
                 transparent: true
@@ -150,7 +151,7 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
                 indiv.sprite.position.y = indiv.get('radial3Z');
                 indiv.sprite.position.z = indiv.get('radial3X');
                 indiv.sprite.name = indiv.get('id');
-                indiv.sprite.scale.x = indiv.sprite.scale.y = 5;
+                indiv.sprite.scale.x = indiv.sprite.scale.y = eachSize / 6;
 
                 geometry.vertices.push(indiv.sprite.position);
                 self.scene.add(indiv.sprite);
@@ -225,9 +226,6 @@ Emotivecolor.EmotionController = Ember.ObjectController.extend({
             jQuery('canvas').toggleClass('blur');
         },
         toggleAllUsers: function () {
-            // if(Emotivecolor.FBUser.id === undefined && this.isAllUsers === true) {
-            //     this.transitionToRoute('user'); // If logged out redirect to login page before showing user's posts (Should redirect after login)
-            // }
             this.cleanup();
             this.toggleProperty('isAllUsers');
         }

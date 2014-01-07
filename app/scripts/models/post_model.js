@@ -41,7 +41,7 @@ Emotivecolor.Post.reopen({
         return (this.get('l') * 2) - 100;
     }.property('l'),
     mine: function () {
-        if (this.get('userid') === parseInt(Emotivecolor.FBUser.id)) {
+        if (this.get('userid') === parseInt(Emotivecolor.FBUser.id, 10)) {
             return true;
         }
     }.property('userid', 'Emotivecolor.FBUser.id'),

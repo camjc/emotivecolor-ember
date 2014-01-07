@@ -1,50 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg"
-     xmlns:xlink="http://www.w3.org/1999/xlink"
-     width="100%" 
-     height="100%"
-     viewBox="0 0 300 300">
-
-  <title>SVG Logo</title>
-  <desc>Designed for the SVG Logo Contest in 2006 by Harvey Rayner, and adopted by W3C in 2009. It is available under the Creative Commons license for those who have an SVG product or who are using SVG on their site.</desc>
- 
-   <metadata id="license">
-     <rdf:RDF 
-       xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-       xmlns:dc="http://purl.org/dc/elements/1.1/"
-       xmlns:cc="http://web.resource.org/cc/">
-       <cc:Work rdf:about="">
-         <dc:title>SVG Logo</dc:title>
-         <dc:date>14-08-2009</dc:date>
-         <dc:creator>
-           <cc:Agent><dc:title>W3C</dc:title></cc:Agent>
-           <cc:Agent><dc:title>Harvey Rayner, designer</dc:title></cc:Agent>
-         </dc:creator>
-         <dc:description>See document description</dc:description>
-         <cc:license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.5/" />
-         <dc:format>image/svg+xml</dc:format>
-         <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-       </cc:Work>
-       <cc:License rdf:about="http://creativecommons.org/licenses/by-nc-sa/2.5/">
-         <cc:permits rdf:resource="http://web.resource.org/cc/Reproduction" />
-         <cc:permits rdf:resource="http://web.resource.org/cc/Distribution" />
-         <cc:requires rdf:resource="http://web.resource.org/cc/Notice" />
-         <cc:requires rdf:resource="http://web.resource.org/cc/Attribution" />
-         <cc:prohibits rdf:resource="http://web.resource.org/cc/CommercialUse" />
-         <cc:permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
-         <cc:requires rdf:resource="http://web.resource.org/cc/ShareAlike" />
-       </cc:License>
-     </rdf:RDF>
-   </metadata>
-   
-   <g stroke-width="38.0086" stroke="#000">
-     <g id="svgstar" transform="translate(150, 150)">
-       <path id="svgbar" fill="#ffb13b" 
-         d="M-84.1487,-15.8513 a22.4171,22.4171 0 1 0 0,31.7026 h168.2974 a22.4171,22.4171 0 1 0 0,-31.7026 Z"/>
-       <use xlink:href="#svgbar" transform="rotate(45)"/>
-       <use xlink:href="#svgbar" transform="rotate(90)"/>
-       <use xlink:href="#svgbar" transform="rotate(135)"/>
-     </g>
-   </g>
-   <use xlink:href="#svgstar"/>
-
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<path d="M416.667,306.366c-12.183,0-23.774-3.839-33.396-10.943H116.728c-9.621,7.104-21.213,10.943-33.395,10.943
+	c-15.056,0-29.211-5.863-39.857-16.509C32.83,279.211,26.967,265.057,26.967,250c0-15.056,5.863-29.211,16.509-39.857
+	s24.801-16.509,39.857-16.509c12.182,0,23.774,3.839,33.395,10.943h266.544c9.62-7.105,21.212-10.943,33.395-10.943
+	c15.056,0,29.211,5.863,39.856,16.509c21.977,21.977,21.978,57.736,0.001,79.712C445.878,300.503,431.723,306.366,416.667,306.366z"
+	/>
+<path d="M367.852,424.217c-28.188,0-51.608-20.796-55.725-47.852L123.635,187.874c-27.056-4.116-47.853-27.537-47.853-55.725
+	c0-31.081,25.286-56.366,56.366-56.366c28.188,0,51.609,20.797,55.725,47.853l188.492,188.492
+	c27.056,4.115,47.852,27.537,47.852,55.726C424.217,398.932,398.932,424.217,367.852,424.217z"/>
+<path d="M250,473.032c-15.056,0-29.211-5.863-39.857-16.509c-10.646-10.646-16.509-24.802-16.509-39.856
+	c0-12.183,3.839-23.774,10.943-33.396V116.716c-16.221-22.042-14.365-53.308,5.566-73.24C220.789,32.83,234.944,26.967,250,26.967
+	c15.057,0,29.211,5.863,39.857,16.509c10.646,10.646,16.509,24.801,16.509,39.857c0,12.182-3.839,23.774-10.943,33.395v266.543
+	c7.104,9.621,10.943,21.213,10.943,33.395c0,15.057-5.863,29.212-16.511,39.857C279.211,467.169,265.057,473.032,250,473.032z"/>
+<path d="M132.149,424.217c-31.081,0-56.366-25.285-56.366-56.365c0-28.188,20.797-51.608,47.853-55.725l188.492-188.492
+	c4.115-27.056,27.536-47.853,55.724-47.853c31.081,0,56.366,25.286,56.366,56.366c0,28.188-20.796,51.608-47.852,55.725
+	L187.874,376.365C183.757,403.421,160.336,424.217,132.149,424.217z"/>
+<path fill="#FFB13B" d="M367.852,169.511c20.635,0,37.361-16.728,37.361-37.362c0-20.634-16.728-37.362-37.362-37.362
+	c-20.634,0-37.36,16.728-37.36,37.362l-198.34,198.34c-20.634,0-37.362,16.728-37.362,37.362c0,20.633,16.728,37.36,37.362,37.36
+	c20.634,0,37.362-16.728,37.362-37.36L367.852,169.511z"/>
+<path fill="#FFB13B" d="M276.419,109.752c14.591-14.59,14.591-38.247,0-52.837s-38.247-14.591-52.838,0
+	c-14.59,14.591-14.59,38.247,0,52.837v280.496c-14.591,14.59-14.59,38.247,0,52.837c14.591,14.591,38.247,14.591,52.838,0
+	c14.591-14.59,14.591-38.247,0-52.837V109.752z"/>
+<path fill="#FFB13B" d="M109.752,223.581c-14.59-14.591-38.247-14.59-52.837,0c-14.591,14.591-14.591,38.247,0,52.838
+	s38.247,14.591,52.837,0h280.496c14.591,14.591,38.247,14.591,52.838,0c14.59-14.591,14.59-38.247-0.001-52.838
+	c-14.59-14.59-38.246-14.59-52.837,0H109.752z"/>
+<path fill="#FFB13B" d="M169.511,132.149c0-20.634-16.728-37.362-37.362-37.362c-20.634,0-37.362,16.728-37.362,37.362
+	c0,20.634,16.728,37.362,37.362,37.362l198.34,198.341c0,20.635,16.728,37.361,37.361,37.361c20.635,0,37.361-16.729,37.361-37.361
+	c0-20.635-16.728-37.361-37.361-37.361L169.511,132.149z"/>
 </svg>

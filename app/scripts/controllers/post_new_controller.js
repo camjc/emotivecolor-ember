@@ -42,7 +42,7 @@ Emotivecolor.PostNewController = Ember.ObjectController.extend({
             };
             Emotivecolor.alertController.popObject(); // Removes Previous Message
             Emotivecolor.alertController.pushObject(Ember.Object.create({
-                    message: 'Error: ' + errors[error.code]
+                message: 'Error: ' + errors[error.code]
             }));
         }
 
@@ -59,7 +59,7 @@ Emotivecolor.PostNewController = Ember.ObjectController.extend({
         } else {
             Emotivecolor.alertController.popObject(); // Removes Previous Message
             Emotivecolor.alertController.pushObject(Ember.Object.create({
-                    message: 'Geolocation is not supported by this browser'
+                message: 'Geolocation is not supported by this browser'
             }));
         }
     },
@@ -95,7 +95,7 @@ Emotivecolor.PostNewController = Ember.ObjectController.extend({
     }.property('hex'),
     actions: {
         anonUser: function () {
-           Emotivecolor.set('FBUser', 'anonymous');
+            Emotivecolor.set('FBUser', 'anonymous');
         },
         click: function (emotion) {
             // Create the new Post model item
