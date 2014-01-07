@@ -80,6 +80,7 @@ header{
 	color: #FFF;
 	text-transform: lowercase;
 	background-color: #AAA;
+	background-color: rgba(#a0a0a0, .8);
 	border-bottom: 2px solid #FFF;
 }
 
@@ -211,6 +212,7 @@ table{
 	color: #fff;
 	cursor: pointer;
 	background-color: #888;
+	background-color: rgba(#777,.8);
 	border-bottom: 2px solid #F5F5F5;
 }
 
@@ -345,17 +347,12 @@ canvas.blur{
 
 @media (min-width: 44em){
 	.login{
-		float: left;
-		width: 600px;
-		padding-left: 50%;
-		margin-top: 22em;
-		margin-left: -300px;
-		text-align: center;
+		@include span-columns(6, 12);
+		@include prefix(3);
+		margin-top: 18em;
 		> div {
-			float: left;
-			&:last-child {
-				float: right;
-			}
+			@include span-columns(1,2);
+			@include nth-omega(2);
 		}
 	}
 }
@@ -366,28 +363,36 @@ canvas.blur{
 
 .about-jumbotron{
 	position: relative;
+	margin-bottom: 8em;
 	color: white;
 }
 
 .about-title{
+	display: block;
+	width: 100%;
+	margin-top: .5em;
+	margin-bottom: 0;
 	font-size: 2.4em;
 	font-weight: 100;
+	line-height: .8;
 	text-align: right;
-	@media(min-width: 41em){
-		font-size: 5.9em;
-	}
-	@media(min-width: 82em){
-		margin-bottom: .5em;
-		font-size: 12.5em;
-	}
+	// @media(min-width: 41em){
+	// 	font-size: 5.9em;
+	// }
+	// @media(min-width: 82em){
+	// 	margin-bottom: .5em;
+	// 	font-size: 12.5em;
+	// }
+}
+
+#fittext{
+	white-space: nowrap;
 }
 
 .about-credits{
-	position: absolute;
-	width: 100%;
-	text-align: right;
-	bottom: -.5em;
+	margin-top: 0;
 	font-weight: 100;
+	text-align: right;
 }
 
 .about-item{
@@ -442,11 +447,11 @@ canvas.blur{
 		@include nth-omega(8n);
 	}
 	img{
+		@include transition(.1s top ease-in-out);
+		position: relative;
 		display: block;
 		width: 100%;
 		margin-bottom: 2em;
-		position: relative;
-		@include transition(.1s top ease-in-out);
 	}
 	&:hover img{
 		top: -.5em;
